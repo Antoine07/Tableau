@@ -1,0 +1,16 @@
+﻿Commande,Date,Region,Categorie,Ventes
+E001,2026-02-01,Nord,Informatique,900
+E002,2026-02-02,Sud,Informatique,150
+E003,2026-02-03,Ouest,Informatique,150
+E004,2026-02-04,Nord,Informatique,100
+E005,2026-02-05,Sud,Informatique,100
+E006,2026-02-06,Nord,Accessoires,100
+E007,2026-02-07,Nord,Accessoires,80
+E008,2026-02-08,Sud,Accessoires,120
+E009,2026-02-09,Sud,Accessoires,100
+E010,2026-02-10,Ouest,Accessoires,100
+E011,2026-02-11,Ouest,Accessoires,100
+E012,2026-02-12,Nord,Mobilier,300
+E013,2026-02-13,Sud,Mobilier,250
+E014,2026-02-14,Ouest,Mobilier,250
+E015,2026-02-15,Ouest,Mobilier,200

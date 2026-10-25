@@ -1,0 +1,75 @@
+{
+  "checked_on": "2026-10-24",
+  "delivery": "remote",
+  "provider": "Documentation officielle Tableau / Salesforce",
+  "images": {
+    "workspace": {
+      "image": "https://help.tableau.com/current/pro/desktop/en-us/Img/environ_workspace1.png",
+      "source": "https://help.tableau.com/current/pro/desktop/fr-fr/environment_workspace.htm",
+      "title": "Une feuille dans Tableau",
+      "alt": "Capture officielle d’une feuille Tableau, avec les zones de travail repérées de A à I.",
+      "compact": false
+    },
+    "datasource": {
+      "image": "https://help.tableau.com/current/pro/desktop/en-us/Img/environ_workspace_datasource_page.png",
+      "source": "https://help.tableau.com/current/pro/desktop/fr-fr/environment_datasource_page.htm",
+      "title": "L’écran Source de données",
+      "alt": "Capture officielle de la source de données Tableau : connexion à gauche, espace de travail et grille de données.",
+      "compact": false
+    },
+    "marks": {
+      "image": "https://help.tableau.com/current/pro/desktop/en-us/Img/build_manual_shelves_marks1.png",
+      "source": "https://help.tableau.com/current/pro/desktop/fr-fr/buildmanual_shelves.htm",
+      "title": "La fiche Repères",
+      "alt": "Capture officielle de la fiche Marks, appelée Repères en français, avec ses commandes et des champs déposés sur différentes propriétés.",
+      "compact": true
+    },
+    "sort": {
+      "image": "https://help.tableau.com/current/pro/desktop/fr-fr/Img/sort_quicksorticons.png",
+      "source": "https://help.tableau.com/current/pro/desktop/fr-fr/sortgroup_sorting_computed_howto.htm",
+      "title": "Reconnaître les commandes de tri",
+      "alt": "Capture officielle montrant les icônes de tri sur un axe, un en-tête et une étiquette de champ dans Tableau.",
+      "compact": false
+    },
+    "continuous_month": {
+      "image": "https://help.tableau.com/current/pro/desktop/en-us/Img/line_10.png",
+      "source": "https://help.tableau.com/current/pro/desktop/fr-fr/buildexamples_line.htm",
+      "title": "Choisir le mois continu",
+      "alt": "Capture officielle du menu du champ YEAR(Ship Date), avec Month sélectionné dans la partie inférieure des niveaux de date.",
+      "compact": true,
+      "checked_on": "2026-10-25"
+    },
+    "monthly_line": {
+      "image": "https://help.tableau.com/current/pro/desktop/en-us/Img/line_11.png",
+      "source": "https://help.tableau.com/current/pro/desktop/fr-fr/buildexamples_line.htm",
+      "title": "Reconnaître une courbe sur un axe temporel",
+      "alt": "Capture officielle d’un graphique Tableau présentant Sales et Profit au fil des mois sur plusieurs années.",
+      "compact": false,
+      "checked_on": "2026-10-25"
+    },
+    "category_filter": {
+      "image": "https://help.tableau.com/current/pro/desktop/en-us/Img/filtering-drag1.png",
+      "source": "https://help.tableau.com/current/pro/desktop/fr-fr/filtering.htm",
+      "title": "Choisir les valeurs à conserver",
+      "alt": "Capture officielle de la boîte de dialogue de filtrage d’une dimension Tableau, avec la liste des valeurs et les cases de sélection.",
+      "compact": true,
+      "checked_on": "2026-10-25"
+    },
+    "date_filter": {
+      "image": "https://help.tableau.com/current/pro/desktop/en-us/Img/filtering-drag3.png",
+      "source": "https://help.tableau.com/current/pro/desktop/fr-fr/filtering.htm",
+      "title": "Choisir le type de filtre de date",
+      "alt": "Capture officielle de la boîte de dialogue Filter Field pour une date, proposant notamment Relative Date et Range of Dates.",
+      "compact": true,
+      "checked_on": "2026-10-25"
+    },
+    "filter_card_menu": {
+      "image": "https://help.tableau.com/current/pro/desktop/en-us/Img/quickfilter_2.png",
+      "source": "https://help.tableau.com/current/pro/desktop/fr-fr/filtering.htm",
+      "title": "Le menu de la fiche de filtre",
+      "alt": "Capture officielle du menu d’une fiche de filtre Tableau, avec les options de présentation et de gestion du filtre.",
+      "compact": true,
+      "checked_on": "2026-10-25"
+    }
+  }
+}

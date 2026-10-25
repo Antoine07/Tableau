@@ -1,0 +1,43 @@
+{
+  "provider": "Tableau / Salesforce",
+  "note": "Les aperçus 384 × 384 provenant du classeur exemple sont conservés dans ce dossier source mais ne sont plus affichés dans les pages étudiantes. La découverte utilise les captures originales du tutoriel officiel Tableau, liées à leurs fichiers haute résolution. Les exemples Tableau et le CSV de la boutique sont des jeux distincts.",
+  "assets": [
+    {
+      "file": "tableau-vue-ensemble.png",
+      "source_file": "/Applications/Tableau Public.app/Contents/help/Workbooks/fr_FR/superstore-1@2x.png",
+      "type": "Aperçu officiel fourni avec Tableau Public",
+      "source": "https://help.tableau.com/current/pro/desktop/en-us/getstarted_buildmanual_ex1basic.htm"
+    },
+    {
+      "file": "tableau-indicateurs-clients.png",
+      "source_file": "/Applications/Tableau Public.app/Contents/help/Workbooks/fr_FR/superstore-3@2x.png",
+      "type": "Aperçu officiel fourni avec Tableau Public",
+      "source": "https://help.tableau.com/current/pro/desktop/en-us/getstarted_buildmanual_ex1basic.htm"
+    },
+    {
+      "file": "../../data/tableau-exemple-hypermarche.twbx",
+      "source_file": "/Applications/Tableau Public.app/Contents/help/Workbooks/fr_FR/Hypermarché.twbx",
+      "type": "Classeur exemple fourni avec Tableau Public, copie intacte"
+    },
+    {
+      "image": "https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Drag6.png",
+      "source": "https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-drag.htm",
+      "type": "Capture officielle distante"
+    },
+    {
+      "image": "https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Dragcolor1.png",
+      "source": "https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-focus.htm",
+      "type": "Capture officielle distante, ventes et bénéfices"
+    },
+    {
+      "image": "https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_build6.png",
+      "source": "https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-build.htm",
+      "type": "Capture officielle distante, tableau de bord"
+    },
+    {
+      "image": "https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Focus_MachineSpike.png",
+      "source": "https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-focus.htm",
+      "type": "Capture officielle distante"
+    }
+  ]
+}

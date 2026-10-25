@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#f7f8f2" name="theme-color"/>
+<meta content="Avant de prendre en main Tableau, observez de vraies analyses : comparer les ventes, choisir un indicateur et explorer un tableau de bord. Deux parallèles facultatifs avec pandas." name="description"/>
+<title>Découvrir l’analyse de données — Bloc 00 — Le labo Tableau</title>
+<link href="../assets/site.css" rel="stylesheet"/>
+<link href="../assets/tableau.css" rel="stylesheet"/>
+<script defer="" src="../assets/tableau.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#cours">Aller à la découverte</a>
+<header class="site-header"><a class="brand" href="../index.html"><span aria-hidden="true" class="brand-icon">tb.</span> Le labo Tableau</a><a class="back-link" href="../syllabus.html">← Le programme</a></header>
+<main class="course-main discovery-main" id="cours">
+<div class="course-intro"><p class="eyebrow">Bloc 00 · Découverte guidée · 30 minutes</p><h1>Du graphique<br/>à la <span>décision.</span></h1><p>Cinq questions métier pour comprendre la valeur de Tableau, avant de construire votre premier graphique.</p><div class="meta"><span>30 min · observation guidée</span><span>5 questions métier</span><span>Sans installation pour commencer</span></div></div>
+<div class="course-layout">
+<nav aria-label="Étapes de la découverte" class="course-nav"><p class="eyebrow">Votre parcours</p><a href="#depart"><span>01</span>Notre objectif</a><a href="#comparer"><span>02</span>Comparer les ventes</a><a href="#indicateurs"><span>03</span>Changer d’indicateur</a><a href="#regions"><span>04</span>Examiner les régions</a><a href="#temps"><span>05</span>Suivre une évolution</a><a href="#dashboard"><span>06</span>Explorer un tableau de bord</a><a href="#atelier"><span>07</span>Décider avec prudence</a><a href="#suite"><span>08</span>À vous de construire</a><a href="../syllabus.html">Syllabus · Le programme</a><a class="download-link" href="01_installation_decouverte.html">Bloc 1 · Prendre en main Tableau →</a></nav>
+<div class="course-content">
+<section class="course-section" id="depart"><p class="eyebrow">Le point de départ</p><h2>Pourquoi une entreprise utiliserait-elle Tableau ?</h2>
+<p class="lead">Vous êtes analyste pour une chaîne de magasins. La direction reçoit des milliers de lignes de commandes. Elle ne veut pas simplement voir un tableau : elle souhaite savoir où agir, quelles ventes sont rentables et si les résultats s’améliorent.</p>
+<div class="callout"><strong>Votre mission : 5 questions, 5 angles d’analyse</strong><p>1. Quels produits se vendent le plus ? 2. Quels clients sont peu rentables ? 3. Dans quelles régions ? 4. Comment les ventes évoluent-elles ? 5. Quelle décision proposer, sous réserve de vérification ?</p></div><div class="callout"><strong>Votre objectif pendant le parcours</strong><p>Vous apprendrez à construire des vues, à vérifier leurs résultats et à les réunir dans un tableau de bord. Vous saurez expliquer ce qu’elles montrent, mais aussi ce qu’elles ne permettent pas de conclure.</p></div>
+<p>Pour cette visite, observez d’abord chaque visuel et proposez une interprétation à l’oral. Lisez ensuite l’analyse courte. Aucun rendu n’est demandé : la prise en main du logiciel commencera au bloc 1.</p>
+<p class="small">Les visuels sont des captures ou des aperçus authentiques fournis par Tableau. Les captures officielles présentent les données d’exemple Superstore. Les passages sur notre boutique et les encadrés pandas utilisent un autre fichier, clairement identifié. Les captures officielles haute résolution nécessitent une connexion Internet ; les liens « Ouvrir l’image source en grand » donnent accès au fichier original.</p>
+<details class="pandas-aside" id="charger-pandas"><summary>Facultatif · Préparer les données pour lire les exemples pandas</summary>
+<p>pandas est une bibliothèque Python qui manipule des tableaux de données. Vous pouvez suivre toute la visite sans exécuter de code. Pour essayer les exemples dans un environnement où pandas est installé, téléchargez <a download="" href="../data/ventes_tableau_exercice.csv">ventes_tableau_exercice.csv</a> et placez-le dans le dossier de travail de votre notebook ou script.</p>
+<div class="code-block"><span class="code-label">Chargement du CSV de notre boutique</span><pre tabindex="0"><code>import pandas as pd
+
+df = pd.read_csv("ventes_tableau_exercice.csv")</code></pre></div>
+<p><code>pd</code> est le nom court donné à pandas. <code>read_csv</code> lit le fichier ; <code>df</code> désigne le tableau obtenu. Il contient 36 observations et six colonnes. Le chargement ne produit pas de graphique.</p>
+<p><strong>En cas d’erreur :</strong> si le fichier est introuvable, vérifiez son emplacement ou adaptez le chemin. Gardez les noms exacts des colonnes, notamment <code>Produit</code>, <code>Region</code> et <code>Chiffre_affaires</code>.</p>
+</details>
+</section>
+<section class="course-section" id="comparer"><p class="eyebrow">Question métier 1 · Quels produits génèrent le plus de chiffre d’affaires ?</p><h2>Quels groupes contribuent aux ventes ?</h2>
+<p class="discovery-question"><strong>Avant de lire l’analyse :</strong> que représente la hauteur des barres ? Pourquoi faut-il regarder l’année avant de comparer deux catégories ?</p>
+<figure class="software-capture" data-capture="discovery-sales"><div class="capture-heading"><span class="mini-label">Capture officielle Tableau</span><strong>Ventes par catégorie et par année</strong></div>
+<a aria-label="Agrandir les ventes par catégorie et par année, nouvel onglet" class="capture-image-link" href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Drag6.png" rel="noopener noreferrer" target="_blank"><img alt="Capture Tableau d’un graphique en barres des ventes par année et catégorie, avec les montants affichés." decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Drag6.png"/></a>
+<p class="capture-unavailable" hidden="">La capture distante ne peut pas être chargée. Consultez la source ci-dessous ; les exemples locaux des lectures 2 et 4 restent disponibles.</p>
+<figcaption><p>Sales = ventes ; Category = catégorie. Les barres portent sur le jeu d’exemple Superstore, et non sur le CSV de notre boutique.</p><p class="capture-credit">Source : Tableau / Salesforce, <a href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-drag.htm">Première exploration des données ↗</a>. <a href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Drag6.png" rel="noopener noreferrer" target="_blank">Agrandir ↗</a></p></figcaption></figure>
+<div class="discovery-analysis"><span class="mini-label">Analyse courte</span><p>Une barre résume les ventes d’une catégorie pour une année. Comparer les catégories sur une même année répond à une autre question que suivre une catégorie sur plusieurs années. Un montant de ventes élevé ne prouve pas, à lui seul, une rentabilité élevée.</p></div>
+<p><strong>Dans notre projet :</strong> nous comparerons des produits sur une période commune, puis vérifierons les totaux. Cette construction sera reprise au <a href="02_comparer_ventes.html">bloc 2</a>.</p>
+<details class="pandas-aside" id="pandas-regrouper"><summary>La même logique d’analyse avec pandas · Regrouper et classer</summary>
+<p>Nous transposons ici la démarche à <strong>notre CSV de boutique</strong>, chargé dans <code>df</code> comme indiqué au début du bloc. Les résultats suivants ne sont pas ceux de la capture Superstore.</p>
+<div class="code-block"><span class="code-label">Chiffre d’affaires par produit</span><pre tabindex="0"><code>ventes_par_produit = (
+    df.groupby("Produit")["Chiffre_affaires"]
+      .sum()
+      .sort_values(ascending=False)
+)
+
+print(ventes_par_produit)</code></pre></div>
+<h3>Lire le code dans l’ordre</h3><ol><li><code>groupby("Produit")</code> rassemble les observations du même produit.</li><li><code>["Chiffre_affaires"]</code> choisit la colonne à analyser ; <code>sum()</code> additionne ses montants dans chaque groupe.</li><li><code>sort_values(ascending=False)</code> classe les totaux du plus grand au plus petit.</li><li><code>ventes_par_produit</code> conserve le résultat et <code>print</code> l’affiche.</li></ol>
+<div class="table-wrap"><table><caption>Résultat sur notre CSV — toutes régions, janvier à avril 2026</caption><thead><tr><th scope="col">Produit</th><th scope="col">Chiffre d’affaires</th></tr></thead><tbody><tr><td>Ordinateur</td><td>56 100 €</td></tr><tr><td>Ecran</td><td>17 940 €</td></tr><tr><td>Clavier</td><td>4 950 €</td></tr></tbody></table></div>
+<p><strong>Le parallèle avec Tableau :</strong> Produit définit les groupes de la vue, et Somme de Chiffre_affaires donne leur montant. Dans pandas, le regroupement est écrit explicitement. Le code ci-dessus produit une série de résultats, pas le graphique.</p>
+<p><strong>Piège fréquent :</strong> remplacer <code>sum()</code> par <code>count()</code> compte les montants renseignés au lieu de les additionner. Le résultat répondrait alors à une autre question.</p>
+<p class="source">Documentation pandas : <a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/06_calculate_statistics.html">Calculer des statistiques par groupe ↗</a>.</p>
+</details>
+</section>
+<section class="course-section" id="indicateurs"><p class="eyebrow">Question métier 2 · Un client important peut-il être déficitaire ?</p><h2>Le chiffre d’affaires ne suffit pas.</h2>
+<p class="discovery-question"><strong>Avant de lire l’analyse :</strong> un nombre de clients, une quantité et un montant décrivent-ils la même chose ? Peut-on comparer directement la longueur de barres qui utilisent des échelles différentes ?</p>
+<figure class="software-capture" data-capture="discovery-indicators"><div class="capture-heading"><span class="mini-label">Capture officielle Tableau · fichier original</span><strong>Ventes et bénéfices ne racontent pas la même chose</strong></div><a aria-label="Ouvrir en grand la vue Tableau sur ventes et bénéfices, nouvel onglet" class="capture-image-link" href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Dragcolor1.png" rel="noopener noreferrer" target="_blank"><img alt="Capture officielle Tableau : ventes par période et catégorie, avec une couleur divergente représentant les bénéfices positifs ou négatifs." decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Dragcolor1.png"/></a><p class="capture-unavailable" hidden>La capture ne peut pas être chargée. Consultez le tutoriel officiel Tableau ci-dessous.</p><figcaption><p>Les barres expriment les ventes ; la couleur distingue les bénéfices positifs et négatifs. On peut donc observer une forte vente et un bénéfice faible ou négatif.</p><p class="capture-credit">Capture du tutoriel officiel Tableau sur l’ajout de couleur à une vue. Les données sont celles de Superstore et ne correspondent pas à notre CSV. <a href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Dragcolor1.png" rel="noopener noreferrer" target="_blank">Ouvrir l’image source en grand ↗</a> · <a href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-focus.htm" rel="noopener noreferrer" target="_blank">Documentation Tableau ↗</a></p></figcaption></figure>
+<div class="discovery-analysis"><span class="mini-label">Analyse courte</span><p>Ventes et bénéfices répondent à des questions différentes. La couleur signale ici les bénéfices négatifs : une vente importante ne garantit donc pas un bénéfice positif. Lisez la légende avant d’interpréter les teintes.</p></div>
+<h3>Le parallèle avec notre boutique</h3><p>Notre CSV permet de comparer les montants et les quantités. Il ne contient pas de coûts : nous ne pouvons donc pas reproduire une analyse de bénéfice avec ces seules données.</p>
+<div class="table-wrap"><table><caption>Deux classements sur le même périmètre de notre boutique</caption><thead><tr><th scope="col">Produit</th><th scope="col">Montant vendu</th><th scope="col">Unités vendues</th></tr></thead><tbody><tr><td>Ordinateur</td><td>56 100 €</td><td>66</td></tr><tr><td>Ecran</td><td>17 940 €</td><td>78</td></tr><tr><td>Clavier</td><td>4 950 €</td><td>90</td></tr></tbody></table></div>
+<p>Ordinateur arrive en tête du chiffre d’affaires, tandis que Clavier arrive en tête des quantités. Les prix unitaires différents expliquent cette inversion dans notre fichier. Au <a href="02_comparer_ventes.html#autonomie">bloc 2</a>, vous apprendrez à construire les deux vues.</p>
+</section>
+<section class="course-section" id="regions"><p class="eyebrow">Question métier 3 · Toutes les régions présentent-elles la même rentabilité ?</p><h2>Ce qui apparaît lorsqu’on sépare les régions.</h2>
+<p class="discovery-question"><strong>Avant de lire l’analyse :</strong> la même famille de produits donne-t-elle nécessairement les mêmes résultats partout ? Où regarder pour distinguer un montant vendu d’un bénéfice ?</p>
+<figure class="software-capture" data-capture="discovery-regions"><div class="capture-heading"><span class="mini-label">Capture officielle Tableau</span><strong>Une lecture par région et par période</strong></div><a aria-label="Agrandir la comparaison par région, nouvel onglet" class="capture-image-link" href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Focus_MachineSpike.png" rel="noopener noreferrer" target="_blank"><img alt="Capture Tableau comparant les ventes et la rentabilité des machines dans plusieurs régions et sur plusieurs années, à l’aide de barres et de couleurs." decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Focus_MachineSpike.png"/></a><p class="capture-unavailable" hidden="">La capture distante ne peut pas être chargée. Consultez la documentation Tableau liée ci-dessous.</p><figcaption><p>Sales = ventes ; Profit = bénéfice ; Region = région. La taille des barres et la couleur portent deux informations différentes : lisez la légende avant de conclure.</p><p class="capture-credit">Source : Tableau / Salesforce, <a href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-focus.htm">Affiner l’analyse avec les filtres et les couleurs ↗</a>. <a href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_Focus_MachineSpike.png" rel="noopener noreferrer" target="_blank">Agrandir ↗</a></p></figcaption></figure>
+<div class="discovery-analysis"><span class="mini-label">Analyse courte</span><p>Dans cet exemple officiel, la séparation par région fait ressortir un problème de bénéfice sur les machines dans le Sud. Un total global ne suffit donc pas à décrire les situations locales. Ce constat oriente l’enquête ; le graphique seul ne démontre pas la cause des pertes.</p></div>
+<p><strong>Dans notre projet :</strong> le <a href="03_dates_filtres.html">bloc 3</a> vous apprendra à sélectionner une région et à lire les mois sur un axe temporel. Une conclusion devra toujours préciser la période et les filtres utilisés.</p>
+<details class="pandas-aside" id="pandas-filtrer"><summary>La même logique d’analyse avec pandas · Sélectionner une région</summary>
+<p>Reprenons <strong>le CSV de notre boutique</strong>, déjà chargé dans <code>df</code>. Nous voulons observer Nord, tous produits et toutes dates du fichier inclus. Il s’agit d’une transposition du principe de filtrage, pas d’une reproduction des valeurs de la capture Superstore.</p>
+<div class="code-block"><span class="code-label">Sélectionner, puis contrôler les données retenues</span><pre tabindex="0"><code>ventes_nord = df[df["Region"] == "Nord"]
+
+nombre_observations = len(ventes_nord)
+chiffre_affaires_nord = ventes_nord["Chiffre_affaires"].sum()
+
+print(nombre_observations)
+print(chiffre_affaires_nord)</code></pre></div>
+<h3>Lire le code dans l’ordre</h3><ol><li><code>df["Region"] == "Nord"</code> vérifie le nom de la région sur chaque ligne.</li><li>Les crochets extérieurs conservent les lignes qui satisfont ce critère. <code>ventes_nord</code> est le tableau sélectionné ; <code>df</code> reste inchangé.</li><li><code>len</code> compte les observations retenues ; <code>sum()</code> additionne leurs montants.</li></ol>
+<p><strong>Résultat attendu :</strong> 12 observations, pour un chiffre d’affaires de <strong>17 250 €</strong>. Douze observations ne signifient pas douze unités vendues : une ligne du fichier peut porter sur plusieurs unités.</p>
+<p><strong>Le parallèle avec Tableau :</strong> sélectionner Nord dans le filtre Region limite les lignes qui contribuent à la vue. Pour obtenir les mêmes résultats, il faut aussi garder les mêmes produits, les mêmes dates et la même agrégation.</p>
+<p><strong>Piège fréquent :</strong> créer <code>ventes_nord</code>, puis calculer le total sur <code>df</code> ; cela additionnerait toutes les régions. Une sélection pandas ne filtre pas automatiquement les autres expressions.</p>
+<p class="source">Documentation pandas : <a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/03_subset_data.html">Sélectionner des lignes dans un tableau ↗</a>.</p>
+</details>
+</section>
+<section class="course-section" id="temps">
+<p class="eyebrow">Question métier 4 · Les ventes progressent-elles vraiment ?</p>
+<h2>Une tendance dépend de la période observée.</h2>
+<p class="discovery-question"><strong>Avant de conclure :</strong> compare-t-on des années entières, les mêmes mois et les mêmes régions ? Une hausse peut-elle masquer une saisonnalité ?</p>
+<figure class="software-capture"><div class="capture-heading"><span class="mini-label">Documentation officielle Tableau</span><strong>Analyser une tendance avec des dates</strong></div>
+<p>Une courbe temporelle place le temps en abscisse et une mesure (par exemple SUM(Sales)) en ordonnée. Elle permet de repérer un changement de tendance, une saisonnalité ou un mois atypique.</p>
+<svg viewBox="0 0 760 360" role="img" aria-label="Exemple de courbe mensuelle montrant qu'une tendance dépend de la période observée" style="width:100%;height:auto;display:block;margin:1rem 0;border:1px solid #d8dee8;border-radius:16px;background:#ffffff;">
+  <rect x="0" y="0" width="760" height="360" rx="16" fill="#ffffff"/>
+  <rect x="84" y="50" width="282" height="230" fill="#eef5ff" opacity="0.9"/>
+  <text x="96" y="42" font-size="13" font-weight="600" fill="#2d5b9f">Lecture partielle : de janvier à juin, la tendance semble simplement croissante.</text>
+  <line x1="84" y1="280" x2="700" y2="280" stroke="#445066" stroke-width="2"/>
+  <line x1="84" y1="70" x2="84" y2="280" stroke="#445066" stroke-width="2"/>
+  <g fill="none" stroke="#d7deea" stroke-width="1">
+    <line x1="84" y1="280" x2="700" y2="280"/>
+    <line x1="84" y1="227.5" x2="700" y2="227.5"/>
+    <line x1="84" y1="175" x2="700" y2="175"/>
+    <line x1="84" y1="122.5" x2="700" y2="122.5"/>
+    <line x1="84" y1="70" x2="700" y2="70"/>
+  </g>
+  <g font-size="12" fill="#5a6472">
+    <text x="64" y="284" text-anchor="end">0</text>
+    <text x="64" y="231" text-anchor="end">15 k€</text>
+    <text x="64" y="179" text-anchor="end">30 k€</text>
+    <text x="64" y="126" text-anchor="end">45 k€</text>
+    <text x="64" y="74" text-anchor="end">60 k€</text>
+  </g>
+  <g font-size="12" fill="#5a6472">
+    <text x="84" y="304" text-anchor="middle">Jan</text>
+    <text x="140" y="304" text-anchor="middle">Fév</text>
+    <text x="196" y="304" text-anchor="middle">Mar</text>
+    <text x="252" y="304" text-anchor="middle">Avr</text>
+    <text x="308" y="304" text-anchor="middle">Mai</text>
+    <text x="364" y="304" text-anchor="middle">Juin</text>
+    <text x="420" y="304" text-anchor="middle">Juil</text>
+    <text x="476" y="304" text-anchor="middle">Aoû</text>
+    <text x="532" y="304" text-anchor="middle">Sep</text>
+    <text x="588" y="304" text-anchor="middle">Oct</text>
+    <text x="644" y="304" text-anchor="middle">Nov</text>
+    <text x="700" y="304" text-anchor="middle">Déc</text>
+  </g>
+  <polyline points="84,217 140,206.5 196,192.5 252,178.5 308,154 364,129.5 420,108.5 476,126 532,143.5 588,150.5 644,119 700,77" fill="none" stroke="#1f77b4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#1f77b4" stroke="#ffffff" stroke-width="2">
+    <circle cx="84" cy="217" r="5"/>
+    <circle cx="140" cy="206.5" r="5"/>
+    <circle cx="196" cy="192.5" r="5"/>
+    <circle cx="252" cy="178.5" r="5"/>
+    <circle cx="308" cy="154" r="5"/>
+    <circle cx="364" cy="129.5" r="5"/>
+    <circle cx="420" cy="108.5" r="5"/>
+    <circle cx="476" cy="126" r="5"/>
+    <circle cx="532" cy="143.5" r="5"/>
+    <circle cx="588" cy="150.5" r="5"/>
+    <circle cx="644" cy="119" r="5"/>
+    <circle cx="700" cy="77" r="5"/>
+  </g>
+  <path d="M 378 124 C 408 94, 438 92, 468 120" fill="none" stroke="#cf6b00" stroke-width="3" stroke-linecap="round"/>
+  <text x="488" y="98" font-size="13" font-weight="600" fill="#a14f00">Creux d'été : la hausse n'est pas linéaire.</text>
+  <path d="M 610 116 C 630 86, 660 74, 690 74" fill="none" stroke="#1b7f5a" stroke-width="3" stroke-linecap="round"/>
+  <text x="510" y="52" font-size="13" font-weight="600" fill="#166146">Pic de fin d'année : la lecture annuelle raconte autre chose.</text>
+  <text x="392" y="336" font-size="12" fill="#5a6472" text-anchor="middle">Exemple pédagogique : une sous-période peut suggérer une tendance différente de celle observée sur l'année complète.</text>
+</svg>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.75rem;margin:0.5rem 0 1rem;">
+  <div style="border:1px solid #d8dee8;border-radius:14px;padding:0.85rem 1rem;background:#f8fbff;">
+    <strong style="display:block;margin-bottom:0.35rem;">Lecture 1 · Janvier → juin</strong>
+    <span>Les ventes montent presque chaque mois. On pourrait conclure trop vite à une croissance régulière.</span>
+  </div>
+  <div style="border:1px solid #d8dee8;border-radius:14px;padding:0.85rem 1rem;background:#fffaf2;">
+    <strong style="display:block;margin-bottom:0.35rem;">Lecture 2 · Année complète</strong>
+    <span>On observe aussi un creux d'été puis un pic de fin d'année : il s'agit plutôt d'une évolution saisonnière.</span>
+  </div>
+</div>
+<p class="capture-credit">Voir les manipulations et captures officielles : <a href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-build.htm" rel="noopener noreferrer" target="_blank">Construire les vues de l'analyse — Tableau ↗</a>.</p></figure>
+<div class="discovery-analysis"><span class="mini-label">Analyse courte</span><p>Une progression mensuelle n'est pas une preuve de croissance durable. Il faut comparer des périodes comparables et préciser les filtres. Une courbe décrit l'évolution observée ; elle n'explique pas seule ses causes.</p></div>
+<p><strong>Question à débattre :</strong> si les ventes de décembre dépassent celles de novembre, peut-on affirmer que l'entreprise est en croissance ? Justifiez votre réponse.</p>
+<p><strong>Dans la suite du cours :</strong> vous construirez une courbe des ventes au <a href="03_dates_filtres.html">bloc 3</a>.</p>
+</section><section class="course-section" id="dashboard"><p class="eyebrow">Question métier 5 · Comment réunir les constats pour décider ?</p><h2>Du graphique au tableau de bord.</h2>
+<p class="discovery-question"><strong>Avant de lire l’analyse :</strong> quelle question la carte permet-elle de poser ? Qu’apportent les courbes et les indicateurs placés à côté ?</p>
+<figure class="software-capture" data-capture="discovery-dashboard"><div class="capture-heading"><span class="mini-label">Capture officielle Tableau · fichier original</span><strong>Réunir une carte et une comparaison dans un tableau de bord</strong></div><a aria-label="Ouvrir en grand le tableau de bord Tableau, nouvel onglet" class="capture-image-link" href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_build6.png" rel="noopener noreferrer" target="_blank"><img alt="Capture officielle Tableau d’un tableau de bord réunissant une carte des bénéfices et un graphique de ventes par sous-catégorie, avec un filtre de période." decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_build6.png"/></a><p class="capture-unavailable" hidden>La capture ne peut pas être chargée. Consultez le tutoriel officiel Tableau ci-dessous.</p><figcaption><p>La carte et le graphique rapprochent le bénéfice géographique et les ventes par produit. Le filtre de période modifie leur lecture ; cette capture reste une image fixe, sans interaction.</p><p class="capture-credit">Capture du tutoriel officiel Tableau consacré aux tableaux de bord. Les données sont celles de Superstore et ne correspondent pas à notre CSV. <a href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/Img/gs_build6.png" rel="noopener noreferrer" target="_blank">Ouvrir l’image source en grand ↗</a> · <a href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-build.htm" rel="noopener noreferrer" target="_blank">Documentation Tableau ↗</a></p></figcaption></figure>
+<div class="discovery-analysis"><span class="mini-label">Analyse courte</span><p>La carte situe l’activité, les courbes montrent son évolution et les indicateurs donnent des repères de synthèse. Ces vues gagnent à être lues ensemble : une sélection géographique peut changer le périmètre analysé. Le lecteur doit pouvoir identifier ce qui est sélectionné et revenir à la vue générale.</p></div>
+<p><strong>Notre objectif de réalisation :</strong> un tableau de bord plus simple, centré sur les produits, les régions et les dates de la boutique. Les cartes et les fonctionnalités avancées de cet exemple sont des possibilités à découvrir ; elles ne sont pas exigées pour le projet final.</p>
+<p class="source">Pour situer les interactions : <a href="https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-build.htm">Construire un tableau de bord dans Tableau ↗</a>.</p>
+</section>
+<section class="course-section" id="atelier">
+<p class="eyebrow">Micro-atelier · 10 minutes · Discussion guidée</p>
+<h2>Du constat à une recommandation défendable.</h2>
+<p class="lead">Un responsable affirme : « La région qui vend le plus mérite automatiquement le plus d'investissement. » Votre équipe doit évaluer cette proposition.</p>
+<ol><li><strong>Observer :</strong> retrouvez dans les visuels une information sur les ventes, une sur les bénéfices et une sur les régions.</li>
+<li><strong>Formuler une hypothèse :</strong> quelles charges, remises ou caractéristiques des produits pourraient expliquer un bénéfice faible ?</li>
+<li><strong>Vérifier :</strong> quelles données complémentaires faut-il demander : marge, retours, période, volume ou coûts attribués ?</li>
+<li><strong>Décider avec prudence :</strong> formulez une recommandation conditionnelle de deux phrases.</li></ol>
+<div class="callout"><strong>Critères d'une bonne réponse</strong><p>La recommandation distingue chiffre d'affaires et bénéfice, précise le périmètre (dates/régions), et identifie au moins une vérification avant toute décision.</p></div>
+<p><strong>Exemple de réponse argumentée :</strong> « La région A réalise le plus de ventes, mais son bénéfice doit être comparé aux autres régions et aux coûts associés. Avant d'augmenter l'investissement, nous devons vérifier les marges, les retours et l'évolution par période. »</p>
+</section><section class="course-section" id="suite"><p class="eyebrow">La suite du parcours</p><h2>Vous allez apprendre à construire vos propres analyses.</h2>
+<div class="concept-grid"><article><span class="mini-label">Blocs 1 et 2</span><h3>Construire et comparer</h3><p>Connecter les données, choisir les champs et vérifier les totaux. Retrouver le principe du regroupement.</p></article><article><span class="mini-label">Bloc 3</span><h3>Explorer un périmètre</h3><p>Utiliser les dates et les filtres. Expliquer ce qui entre dans le calcul.</p></article><article><span class="mini-label">Blocs 4 et 5 · À venir</span><h3>Créer des indicateurs</h3><p>Écrire des calculs et des conditions, puis analyser les marges avec des données enrichies.</p></article><article><span class="mini-label">Blocs 6 et 7 · À venir</span><h3>Présenter et argumenter</h3><p>Assembler un tableau de bord et défendre une réponse métier.</p></article></div>
+<p>Retenez trois questions avant toute conclusion : <strong>que mesure-t-on, sur quelles données et pour répondre à quoi ?</strong> Le code pandas restera facultatif ; les manipulations du cours se feront dans Tableau.</p>
+<div class="actions"><a class="button primary" href="01_installation_decouverte.html">Bloc 1 · Installer et découvrir Tableau →</a><a class="button" href="../syllabus.html">Revoir le syllabus</a></div>
+</section>
+</div></div>
+</main>
+<footer class="site-footer"><span>Le labo Tableau / NEXA</span><a href="../index.html">Revenir au parcours ←</a></footer>
+</body>
+</html>

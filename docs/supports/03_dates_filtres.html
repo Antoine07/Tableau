@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f8f2">
+<meta name="description" content="Explorer les ventes dans Tableau : dates, courbe mensuelle et filtres par région et produit. Trois exercices, huit flashcards et un QCM séparé.">
+<title>Explorer les ventes : dates et filtres — Bloc 03 — Le labo Tableau</title>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/tableau.css">
+<script src="../assets/tableau.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#cours">Aller au cours</a>
+<header class="site-header"><a class="brand" href="../index.html"><span class="brand-icon" aria-hidden="true">tb.</span> Le labo Tableau</a><a class="back-link" href="../index.html">← Le parcours</a></header>
+<main id="cours" class="course-main">
+<div class="course-intro"><p class="eyebrow">Découvrir Tableau · Bloc 03</p><h1>Explorer.<br>Filtrer. <span>Interpréter.</span></h1><p>Dates et filtres : suivre les ventes et préciser son analyse.</p><div class="meta"><span>Après le bloc 2</span><span>75–90 min</span><span>Même fichier, même classeur</span></div></div>
+<div class="course-layout">
+<nav class="course-nav" aria-label="Étapes du bloc">
+<p class="eyebrow">Votre parcours</p><a href="../etudes/03_auditer_evolution.html">Étude 03 · Analyse autonome</a><a href="../syllabus.html">Syllabus · Le programme</a>
+<a href="#objectif"><span>01</span>La question métier</a>
+<a href="#source"><span>02</span>Reprendre les données</a>
+<a href="#notions"><span>03</span>Comprendre les dates</a>
+<a href="#courbe"><span>04</span>Construire la courbe</a>
+<a href="#filtres"><span>05</span>Explorer avec les filtres</a>
+<a href="#autonomie"><span>06</span>À vous de jouer</a>
+<a href="#diagnostic"><span>07</span>Retrouver les données</a>
+<a href="#projet"><span>08</span>Enrichir le fil rouge</a>
+<a href="#revision"><span>09</span>Réviser les notions</a>
+
+<a href="../qcm/03_dates_filtres.html">QCM + flashcards · Bloc 03 ↗</a>
+<a class="download-link" href="../data/ventes_tableau_exercice.csv" download>↓ Fichier du bloc 2</a>
+<a href="02_comparer_ventes.html">← Revoir le bloc 2</a><a href="tp_02_dates_filtres.html">TP guidé 02 · Explorer une évolution →</a><a href="../etudes/tp_binome_synthese.html">TP en binôme · Première analyse →</a>
+</nav>
+<div class="course-content">
+<section class="course-section" id="objectif">
+<p class="eyebrow">Bloc 03 <span>/</span> 01 · La question métier</p><h2>Observer une évolution.</h2>
+<p class="lead">La responsable de la boutique connaît maintenant le classement des produits. Elle veut savoir comment leurs ventes évoluent dans le temps et examiner une région en particulier.</p>
+<div class="callout"><strong>La question du bloc</strong><p>« Comment le chiffre d’affaires évolue-t-il de janvier à avril 2026, et que voit-on lorsqu’on sélectionne une région ou un produit ? »</p></div>
+<p class="small capture-note">Les captures de ce chapitre proviennent de la documentation officielle de Tableau. Elles sont en anglais et peuvent différer légèrement de votre version. Cliquez sur une image pour l’agrandir. Leur affichage nécessite une connexion Internet ; les consignes et les corrigés restent disponibles hors connexion.</p>
+<h3>Objectif</h3><p>Construire une courbe mensuelle, ajouter des filtres utilisables et rédiger une conclusion qui précise les données sélectionnées. Vous apprendrez aussi à retrouver des données qu’un filtre semble avoir fait disparaître.</p>
+<h3>Résumé général</h3><p>La date organise les observations dans le temps. La somme donne le chiffre d’affaires de chaque mois. Les filtres limitent l’analyse à certaines lignes du fichier. Un résultat doit toujours être lu avec sa période, son unité et ses sélections.</p>
+<p><strong>Prérequis :</strong> avoir terminé le bloc 2, savoir sélectionner une source, créer une feuille et reconnaître SOMME(Chiffre_affaires). Gardez votre classeur et ses feuilles précédentes.</p>
+<div class="journey"><span>Regrouper par mois</span><span>Tracer</span><span>Filtrer</span><span>Expliquer</span></div>
+<p class="small">Durée indicative : 75 à 90 minutes. Les champs calculés et l’écriture de formules viendront dans le bloc suivant.</p>
+</section>
+
+<section class="course-section" id="source">
+<p class="eyebrow">Bloc 03 <span>/</span> 02 · Reprendre les données</p><h2>Une nouvelle feuille, la même source.</h2>
+<ol class="steps"><li>Ouvrez le classeur du bloc 2 et créez une <strong>nouvelle feuille de calcul</strong>, nommée <strong>Évolution des ventes</strong>.</li><li>Dans le volet Données, sélectionnez la source <strong>ventes_tableau_exercice</strong>, déjà connectée. Il n’est pas nécessaire de l’ajouter une deuxième fois.</li><li>Repérez <strong>Date, Region, Produit et Chiffre_affaires</strong>. Si vous voyez Categorie et Ventes, vous avez sélectionné la source du bloc 1.</li><li>Vérifiez le type de Date : une icône de calendrier doit l’identifier. S’il est reconnu comme texte, cliquez sur son icône de type puis choisissez <strong>Date</strong>. Vérifiez ensuite que les valeurs sont bien reconnues, sans valeurs nulles inattendues.</li></ol>
+<p>Si vous devez reconnecter le fichier, reprenez la procédure du <a href="02_comparer_ventes.html#fichier">bloc 2</a> et utilisez <a href="../data/ventes_tableau_exercice.csv" download>le même CSV</a>.</p>
+<div class="table-wrap"><table><caption>Le périmètre de notre fichier</caption><thead><tr><th>Élément</th><th>Contenu</th></tr></thead><tbody><tr><td>Dates</td><td>15 janvier, 15 février, 15 mars et 15 avril 2026</td></tr><tr><td>Régions</td><td>Nord, Sud et Ouest</td></tr><tr><td>Produits</td><td>Ordinateur, Ecran et Clavier</td></tr><tr><td>Observations</td><td>36 lignes ; 9 par date</td></tr></tbody></table></div>
+<div class="notice"><strong>Quatre dates ne décrivent pas tous les jours de quatre mois.</strong><p>Chaque ligne représente une observation Date–Region–Produit. Nous regroupons les montants disponibles par mois, mais nous ne savons rien des autres jours. Un mois absent du fichier ne signifie pas automatiquement zéro vente.</p></div>
+</section>
+
+<section class="course-section" id="notions">
+<p class="eyebrow">Bloc 03 <span>/</span> 03 · Comprendre les dates</p><h2>Du jour au mois.</h2>
+<div class="concept-grid">
+<article><span class="mini-label">Choisir le détail</span><h3>Niveau de date</h3><p>Année, trimestre, mois ou jour : ce choix détermine comment on regroupe les observations. Au niveau année, notre fichier donne un seul total pour 2026 ; au niveau mois, quatre montants.</p></article>
+<article><span class="mini-label">Suivre le temps</span><h3>Date continue</h3><p>Elle construit un axe chronologique. Nous utiliserons le mois continu pour placer janvier 2026, février 2026, mars 2026 et avril 2026 sur cet axe. Sa pastille est verte.</p></article>
+<article><span class="mini-label">Former des catégories</span><h3>Date discrète</h3><p>Elle crée des en-têtes séparés. La partie de date « Mois » peut réunir les janvier de plusieurs années si l’année n’est pas distinguée. Sa pastille est bleue.</p></article>
+<article><span class="mini-label">Limiter l’analyse</span><h3>Filtre</h3><p>Il conserve certaines données pour la vue. Par exemple, sélectionner Nord permet d’examiner cette région. Les lignes des autres régions restent dans le CSV.</p></article>
+</div>
+<p><strong>Deux choix différents :</strong> « Mois » fixe le niveau de détail ; « Continu » fixe la manière de présenter la date. La couleur seule ne prouve donc pas que vous avez choisi le bon niveau.</p>
+
+<figure class="software-capture capture-compact" data-capture="continuous_month">
+<div class="capture-heading"><span class="mini-label">Capture réelle · Tableau</span><strong>Choisir le mois continu</strong></div>
+<a class="capture-image-link" href="https://help.tableau.com/current/pro/desktop/en-us/Img/line_10.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir : Choisir le mois continu (nouvel onglet)"><img src="https://help.tableau.com/current/pro/desktop/en-us/Img/line_10.png" alt="Capture officielle du menu du champ YEAR(Ship Date), avec Month sélectionné dans la partie inférieure des niveaux de date." loading="lazy" decoding="async" referrerpolicy="no-referrer"></a>
+<p class="capture-unavailable" hidden>La capture ne peut pas être chargée. Vérifiez votre connexion ou consultez la documentation liée ci-dessous.</p>
+<figcaption><p>Le menu présente plusieurs niveaux de date. Dans cet exemple, <strong>Month</strong> correspond à <strong>Mois</strong>. Repérez le choix dans la partie inférieure du menu.</p><p class="capture-task"><strong>À retrouver dans votre exercice :</strong> Ouvrez le menu de Date sur Colonnes, puis choisissez le mois continu. Le champ de la capture s’appelle Ship Date ; le nôtre s’appelle Date.</p><p class="capture-credit">Capture de la documentation officielle Tableau / Salesforce, en anglais. Les données diffèrent de notre CSV. <a href="https://help.tableau.com/current/pro/desktop/en-us/Img/line_10.png" target="_blank" rel="noopener noreferrer">Agrandir ↗</a> · <a href="https://help.tableau.com/current/pro/desktop/fr-fr/buildexamples_line.htm" target="_blank" rel="noopener noreferrer">Source : Tableau ↗</a></p></figcaption>
+</figure>
+<div class="callout"><strong>Lecture des formules</strong><p><strong>SOMME(Chiffre_affaires)</strong> additionne les montants retenus pour chaque mois. Avec le filtre Nord, janvier regroupe les trois produits : <strong>1 700 + 690 + 220 = 2 610 €</strong>. Les trois nombres sont leurs chiffres d’affaires ; le signe + signifie qu’on les additionne. Ce total ne concerne que Nord.</p></div>
+<h3>Pourquoi une courbe ?</h3><p>Les barres du bloc 2 comparaient des produits. Une courbe relie ici des observations ordonnées dans le temps et facilite la lecture de leur évolution. Le segment entre deux mois aide à lire la tendance ; il n’ajoute aucune observation entre les deux dates.</p>
+<p class="source">Documentation Tableau : <a href="https://help.tableau.com/current/pro/desktop/fr-fr/dates_continuous.htm">Dates continues ↗</a> · <a href="https://help.tableau.com/current/pro/desktop/fr-fr/buildexamples_line.htm">Graphiques en courbes ↗</a></p>
+</section>
+
+<section class="course-section" id="courbe">
+<p class="eyebrow">Bloc 03 <span>/</span> 04 · Construire la courbe</p><h2>Quatre mois, quatre montants.</h2>
+<article class="exercise" id="exercice-1">
+<p class="eyebrow">Exercice 01 · Guidé · 15 min</p><h3>Tracer l’évolution de toutes les ventes</h3>
+<p><strong>Objectif :</strong> choisir un niveau de date et représenter un total mensuel. <strong>Prérequis :</strong> la nouvelle feuille et les notions ci-dessus.</p>
+<p><strong>Énoncé :</strong> construisez la courbe du chiffre d’affaires par mois, toutes régions et tous produits inclus. Avant de commencer, prédisez le nombre de valeurs que vous devriez obtenir.</p>
+<p><strong>Contraintes :</strong> une seule courbe, mois continu, agrégation Somme, aucun filtre. <strong>Livrable :</strong> la feuille « Évolution des ventes » et une phrase décrivant l’évolution. <strong>Réussite :</strong> quatre valeurs, de janvier à avril 2026, avec un axe temporel et une unité en euros.</p>
+<h3>Pas à pas dans Tableau</h3>
+<ol class="steps"><li>Glissez <strong>Date sur Colonnes</strong>. Ouvrez le menu de cette pastille et choisissez <strong>Mois dans la partie inférieure des niveaux de date</strong>, celle des dates continues. Vérifiez la pastille verte et le niveau Mois. Un simple passage d’Année à Continu ne suffit pas.</li><li>Glissez <strong>Chiffre_affaires sur Lignes</strong>. Vérifiez <strong>SOMME(Chiffre_affaires)</strong> ; sinon choisissez <strong>Mesure → Somme</strong> dans son menu.</li><li>Dans la fiche <strong>Repères</strong>, choisissez <strong>Ligne</strong>. Laissez Filtres vide et n’ajoutez ni Region ni Produit sur Couleur ou Détail : nous voulons une seule courbe.</li><li>Glissez aussi <strong>Chiffre_affaires sur Étiquette</strong>, avec Somme. Si nécessaire, activez l’affichage des étiquettes dans la fiche Repères. Survolez les points pour lire le mois et le montant dans les infobulles.</li><li>Vérifiez le format en euros sans décimales, comme au bloc 2. Donnez à l’axe vertical le titre <strong>Chiffre d’affaires (€)</strong>. Si nécessaire, faites un clic droit sur l’axe pour le modifier.</li><li>Affichez le titre via <strong>Feuille de calcul → Afficher le titre</strong>, puis modifiez-le en <strong>Chiffre d’affaires par mois — échantillon janvier–avril 2026</strong>. Enregistrez.</li></ol>
+
+<figure class="software-capture" data-capture="monthly_line">
+<div class="capture-heading"><span class="mini-label">Capture réelle · Tableau</span><strong>Reconnaître une courbe sur un axe temporel</strong></div>
+<a class="capture-image-link" href="https://help.tableau.com/current/pro/desktop/en-us/Img/line_11.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir : Reconnaître une courbe sur un axe temporel (nouvel onglet)"><img src="https://help.tableau.com/current/pro/desktop/en-us/Img/line_11.png" alt="Capture officielle d’un graphique Tableau présentant Sales et Profit au fil des mois sur plusieurs années." loading="lazy" decoding="async" referrerpolicy="no-referrer"></a>
+<p class="capture-unavailable" hidden>La capture ne peut pas être chargée. Vérifiez votre connexion ou consultez la documentation liée ci-dessous.</p>
+<figcaption><p>Observez l’axe des dates et les courbes de l’exemple officiel. <strong>Columns = Colonnes</strong>, <strong>Rows = Lignes</strong>, <strong>Sales = Ventes</strong> et <strong>Profit = Bénéfice</strong>.</p><p class="capture-task"><strong>À retrouver dans votre exercice :</strong> Placez Date au mois continu sur Colonnes et SOMME(Chiffre_affaires) sur Lignes. Notre exercice conserve une seule mesure et une seule courbe sur quatre mois ; il ne demande pas d’ajouter Profit.</p><p class="capture-credit">Capture de la documentation officielle Tableau / Salesforce, en anglais. Les données diffèrent de notre CSV. <a href="https://help.tableau.com/current/pro/desktop/en-us/Img/line_11.png" target="_blank" rel="noopener noreferrer">Agrandir ↗</a> · <a href="https://help.tableau.com/current/pro/desktop/fr-fr/buildexamples_line.htm" target="_blank" rel="noopener noreferrer">Source : Tableau ↗</a></p></figcaption>
+</figure>
+<details><summary>Indice 1 · Je n’obtiens qu’une valeur</summary><p>Regardez le niveau de Date sur Colonnes. Au niveau Année, toutes les observations appartiennent à 2026. Choisissez le mois continu.</p></details>
+<details><summary>Indice 2 · J’obtiens plusieurs courbes</summary><p>Vérifiez les champs sur Couleur et Détail dans Repères. Region ou Produit peuvent séparer le total en plusieurs groupes. Retirez-les pour cet exercice.</p></details>
+<p class="small">La correction détaillée sera présentée ou transmise séparément par le formateur.</p>
+</article>
+<p class="source">Le choix du mois continu dans le menu est illustré dans la documentation : <a href="https://help.tableau.com/current/pro/desktop/fr-fr/buildexamples_line.htm">Créer un graphique en courbes ↗</a>.</p>
+</section>
+
+<section class="course-section" id="filtres">
+<p class="eyebrow">Bloc 03 <span>/</span> 05 · Explorer avec les filtres</p><h2>La même question, un périmètre précis.</h2>
+<p>Un périmètre décrit ce qui entre dans l’analyse. Nous allons le modifier sans changer le fichier.</p>
+<h3>Ajouter les deux commandes de sélection</h3>
+<ol class="steps"><li>Glissez <strong>Region</strong> depuis Données vers <strong>Filtres</strong>. Dans l’onglet Général, sélectionnez d’abord les trois régions et validez.</li><li>Dans le menu de la pastille Region sur Filtres, choisissez <strong>Afficher le filtre</strong>. La fiche de sélection apparaît à côté de la vue.</li><li>Dans le menu de cette fiche, choisissez le mode <strong>Plusieurs valeurs (liste)</strong> pour disposer de cases à cocher.</li><li>Faites de même pour <strong>Produit</strong>, avec les trois produits sélectionnés. Laissez ces filtres s’appliquer à cette feuille seulement ; ne les étendez pas aux feuilles du bloc 2.</li><li>Testez une sélection, puis rétablissez les trois régions et les trois produits avec <strong>(Tout)</strong> ou en cochant toutes les cases. Les montants initiaux doivent revenir.</li></ol>
+
+<figure class="software-capture capture-compact" data-capture="category_filter">
+<div class="capture-heading"><span class="mini-label">Capture réelle · Tableau</span><strong>Choisir les valeurs à conserver</strong></div>
+<a class="capture-image-link" href="https://help.tableau.com/current/pro/desktop/en-us/Img/filtering-drag1.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir : Choisir les valeurs à conserver (nouvel onglet)"><img src="https://help.tableau.com/current/pro/desktop/en-us/Img/filtering-drag1.png" alt="Capture officielle de la boîte de dialogue de filtrage d’une dimension Tableau, avec la liste des valeurs et les cases de sélection." loading="lazy" decoding="async" referrerpolicy="no-referrer"></a>
+<p class="capture-unavailable" hidden>La capture ne peut pas être chargée. Vérifiez votre connexion ou consultez la documentation liée ci-dessous.</p>
+<figcaption><p>Cette fenêtre s’ouvre lorsqu’une dimension est déposée sur <strong>Filtres</strong>. La liste permet de choisir les valeurs à conserver.</p><p class="capture-task"><strong>À retrouver dans votre exercice :</strong> Avec Region, cochez Nord, Sud et Ouest pour démarrer. Reproduisez ensuite le geste avec Produit. Les noms de la capture appartiennent à l’exemple officiel.</p><p class="capture-credit">Capture de la documentation officielle Tableau / Salesforce, en anglais. Les données diffèrent de notre CSV. <a href="https://help.tableau.com/current/pro/desktop/en-us/Img/filtering-drag1.png" target="_blank" rel="noopener noreferrer">Agrandir ↗</a> · <a href="https://help.tableau.com/current/pro/desktop/fr-fr/filtering.htm" target="_blank" rel="noopener noreferrer">Source : Tableau ↗</a></p></figcaption>
+</figure>
+<p><strong>À distinguer :</strong> la pastille dans l’étagère Filtres porte le filtrage ; la fiche affichée à côté du graphique permet de changer la sélection. Masquer cette fiche ne désactive pas le filtre.</p>
+<h3>Lire deux filtres ensemble</h3><p>Si vous sélectionnez <strong>Nord</strong> et <strong>Ordinateur</strong>, la courbe conserve uniquement les observations qui vérifient ces deux critères à la fois : les ordinateurs vendus dans le Nord. Notez votre sélection avant de commenter un montant.</p>
+<div class="callout"><strong>Le titre et les sélections doivent rester cohérents.</strong><p>Gardez le titre général sur le chiffre d’affaires par mois et les deux fiches de filtre visibles. Dans votre commentaire, précisez région, produit et période. Évitez un titre « Toutes régions » qui deviendrait faux après une sélection.</p></div>
+<details class="pandas-aside"><summary>Le parallèle avec pandas · Filtrer avant de calculer</summary><p>Avec le CSV du cours déjà chargé dans <code>df</code>, sélectionnons les observations de Nord avant de calculer leur montant :</p><div class="code-block"><span class="code-label">Facultatif · Lecture du code</span><pre tabindex="0"><code>ventes_nord = df[df["Region"] == "Nord"]
+chiffre_affaires_nord = ventes_nord["Chiffre_affaires"].sum()</code></pre></div><p>La comparaison <code>==</code> identifie les lignes de Nord ; les crochets les conservent dans <code>ventes_nord</code>. La seconde ligne additionne uniquement leurs montants. Dans Tableau, le filtre Region détermine les lignes qui contribuent à la vue.</p><p><strong>Piège :</strong> calculer ensuite sur <code>df</code> retrouverait le périmètre général. Le fichier et le tableau initial ne sont pas modifiés par cette sélection. <a href="00_decouvrir_analyse.html#pandas-filtrer">Revoir les étapes et les valeurs de contrôle</a> · <a href="00_decouvrir_analyse.html#charger-pandas">Chargement du CSV</a>.</p></details><h3>Limiter aussi la période</h3>
+<p>Pour n’examiner que février et mars, commencez par remettre Region et Produit sur Tout. Glissez ensuite <strong>Date depuis Données vers Filtres</strong>, choisissez <strong>Plage de dates</strong>, puis les bornes du <strong>1er février au 31 mars 2026</strong>. La vue conserve deux valeurs. Les dates originales du fichier, le 15 de chaque mois, sont bien comprises dans ces bornes.</p>
+
+<figure class="software-capture capture-compact" data-capture="date_filter">
+<div class="capture-heading"><span class="mini-label">Capture réelle · Tableau</span><strong>Choisir le type de filtre de date</strong></div>
+<a class="capture-image-link" href="https://help.tableau.com/current/pro/desktop/en-us/Img/filtering-drag3.png" target="_blank" rel="noopener noreferrer" aria-label="Agrandir : Choisir le type de filtre de date (nouvel onglet)"><img src="https://help.tableau.com/current/pro/desktop/en-us/Img/filtering-drag3.png" alt="Capture officielle de la boîte de dialogue Filter Field pour une date, proposant notamment Relative Date et Range of Dates." loading="lazy" decoding="async" referrerpolicy="no-referrer"></a>
+<p class="capture-unavailable" hidden>La capture ne peut pas être chargée. Vérifiez votre connexion ou consultez la documentation liée ci-dessous.</p>
+<figcaption><p>La boîte de dialogue distingue les dates relatives et les plages fixes. <strong>Range of Dates</strong> correspond à <strong>Plage de dates</strong>.</p><p class="capture-task"><strong>À retrouver dans votre exercice :</strong> Choisissez Plage de dates, puis saisissez dans la fenêtre suivante les bornes du 1er février au 31 mars 2026. La capture montre le choix du type de filtre, pas les bornes de notre exercice.</p><p class="capture-credit">Capture de la documentation officielle Tableau / Salesforce, en anglais. Les données diffèrent de notre CSV. <a href="https://help.tableau.com/current/pro/desktop/en-us/Img/filtering-drag3.png" target="_blank" rel="noopener noreferrer">Agrandir ↗</a> · <a href="https://help.tableau.com/current/pro/desktop/fr-fr/filtering.htm" target="_blank" rel="noopener noreferrer">Source : Tableau ↗</a></p></figcaption>
+</figure>
+<p>Après cet essai, <strong>retirez Date de l’étagère Filtres</strong> pour revenir aux quatre mois. Conservez Date sur Colonnes. Un filtre « derniers mois » relatif à aujourd’hui ne conviendrait pas à notre exercice à dates fixes.</p>
+<p class="small">La correction détaillée sera présentée ou transmise séparément par le formateur.</p>
+<p class="source">Documentation Tableau : <a href="https://help.tableau.com/current/pro/desktop/fr-fr/filtering.htm">Créer, afficher et régler les filtres ↗</a>.</p>
+</section>
+
+<section class="course-section" id="autonomie">
+<p class="eyebrow">Bloc 03 <span>/</span> 06 · À vous de jouer</p><h2>Examiner la région Nord.</h2>
+<article class="exercise" id="exercice-2"><p class="eyebrow">Exercice 02 · Autonome · 15 min</p><h3>Passer d’une région à un produit</h3>
+<p><strong>Objectif :</strong> combiner deux filtres et expliquer leur effet. <strong>Prérequis :</strong> la courbe mensuelle et les deux fiches de filtre ; aucun filtre Date.</p>
+<p><strong>Énoncé :</strong> sélectionnez Nord et tous les produits. Relevez les quatre montants mensuels et leur total. Gardez Nord, puis sélectionnez seulement Ordinateur. Relevez les nouveaux montants. Rédigez une conclusion pour chaque sélection et expliquez pourquoi les résultats diffèrent.</p>
+<p><strong>Contraintes :</strong> conserver la même mesure et les quatre mois ; ne pas modifier le CSV. <strong>Livrable :</strong> deux séries de quatre montants dans vos notes, avec les sélections et deux conclusions. <strong>Réussite :</strong> les périmètres sont explicites ; vous pouvez revenir aux montants initiaux en rétablissant Tout.</p>
+<details><summary>Indice 1</summary><p>Vérifiez que Nord est la seule région cochée. Pour le premier relevé, les trois produits doivent être sélectionnés.</p></details>
+<details><summary>Indice 2</summary><p>Au deuxième relevé, une seule ligne du CSV par mois satisfait à la fois Nord et Ordinateur. Le filtre Produit réduit encore la sélection.</p></details>
+<p class="small">La correction détaillée sera présentée ou transmise séparément par le formateur.</p>
+</article>
+<p><strong>Avant de continuer :</strong> rétablissez toutes les régions et tous les produits. Vérifiez que janvier retrouve son montant de l’exercice 1.</p>
+</section>
+
+<section class="course-section" id="diagnostic">
+<p class="eyebrow">Bloc 03 <span>/</span> 07 · Retrouver les données</p><h2>Un filtre peut rester actif sans sa fiche.</h2>
+<article class="exercise" id="exercice-3"><p class="eyebrow">Exercice 03 · Diagnostic · 10 min</p><h3>Les ventes ont-elles disparu ?</h3>
+<p><strong>Objectif :</strong> diagnostiquer un écart de montant et justifier la correction. <strong>Prérequis :</strong> savoir manipuler Region et Produit.</p>
+<p><strong>Mise en situation :</strong> sur la feuille « Évolution des ventes », gardez tous les produits, aucun filtre Date, puis sélectionnez Nord. Dans le menu de la fiche Region à côté du graphique, choisissez <strong>Masquer la fiche</strong>. Passez si possible votre écran à un camarade sans lui indiquer la sélection.</p>
+<p><strong>Énoncé :</strong> janvier affiche 2 610 € alors que vous voulez présenter toutes les régions. Retrouvez la cause, restaurez la vue complète et rendez la sélection de région de nouveau visible.</p>
+<p><strong>Contraintes :</strong> ne rechargez pas le fichier et ne changez pas l’agrégation. <strong>Livrable :</strong> la vue corrigée et une explication de la cause en deux phrases. <strong>Réussite :</strong> janvier retrouve 14 640 €, les quatre mois restent présents et la fiche Region permet de contrôler le périmètre.</p>
+<details><summary>Indice 1</summary><p>Une commande invisible peut laisser une règle active. Regardez les pastilles de l’étagère Filtres.</p></details>
+<details><summary>Indice 2</summary><p>Ouvrez le menu de Region sur Filtres, affichez de nouveau le filtre et examinez les cases cochées.</p></details>
+<p class="small">La correction détaillée sera présentée ou transmise séparément par le formateur.</p>
+</article>
+<h3>Autres erreurs fréquentes</h3>
+<div class="table-wrap"><table><caption>Partir du symptôme pour choisir le contrôle</caption><thead><tr><th>Symptôme</th><th>Ce qu’il faut vérifier</th></tr></thead><tbody><tr><td>Un seul point pour 2026</td><td>Le niveau Date est peut-être Année. Choisir Mois continu.</td></tr><tr><td>Quatre valeurs égales à 9, sans filtres</td><td>Nombre compte les observations ; remettre Somme sur Chiffre_affaires.</td></tr><tr><td>Seulement deux mois</td><td>Un filtre Date limite peut-être la période à février et mars.</td></tr><tr><td>Une vue vide</td><td>Une sélection est vide ou un filtre Date exclut toutes les dates du fichier.</td></tr><tr><td>Des résultats trop petits</td><td>Contrôler Region et Produit, y compris leurs filtres dont la fiche est masquée.</td></tr><tr><td>Des mois sont absents du fichier</td><td>Ne pas les interpréter comme des ventes nulles sans information supplémentaire.</td></tr></tbody></table></div>
+</section>
+
+<section class="course-section" id="projet">
+<p class="eyebrow">Bloc 03 <span>/</span> 08 · Enrichir le fil rouge</p><h2>Une boutique, plusieurs angles de lecture.</h2>
+<h3>Contexte et utilisateurs</h3><p>La responsable commerciale utilise votre classeur pour préparer un point sur les ventes. Elle veut passer du classement des produits à leur évolution, puis examiner une région.</p>
+<h3>Organisation attendue</h3><p>Conservez les sources distinctes des blocs 1 et 2, ainsi que leurs feuilles. La nouvelle feuille utilise la source ventes_tableau_exercice, avec un total par mois et deux filtres locaux. Aucun tableau de bord ni relation entre sources n’est nécessaire à ce stade.</p>
+<div class="table-wrap"><table><caption>Le projet avance dans le même classeur</caption><thead><tr><th>Jalon</th><th>Production et contrôle</th><th>Erreur à observer</th></tr></thead><tbody><tr><td>Bloc 1 · Premières vues</td><td>Ventes par catégorie : total de 1 320 € dans la source découverte.</td><td>Confondre les deux sources.</td></tr><tr><td>Bloc 2 · Comparaison</td><td>Ventes et quantités par produit : 78 990 € et 234 unités.</td><td>Compter les observations au lieu d’additionner.</td></tr><tr><td>Bloc 3 · Exploration</td><td>Quatre montants mensuels, filtres Region et Produit, retour au total de 78 990 €.</td><td>Commenter un résultat sans préciser les filtres.</td></tr></tbody></table></div>
+<h3>Livrable et critères de validation</h3><ul class="check-list"><li>Une feuille « Évolution des ventes » enregistrée dans le même classeur.</li><li>Date au mois continu sur Colonnes, Somme de Chiffre_affaires sur Lignes, une courbe en euros.</li><li>Les deux fiches de filtre visibles, rétablies sur Tout ; aucun filtre Date restant.</li><li>Les quatre montants de l’exercice 1 retrouvés, avec un titre précisant la période et l’échantillon.</li><li>Les deux conclusions de l’exercice autonome dans vos notes, avec leurs sélections.</li></ul>
+<details><summary>Extension facultative · Explorer une autre région</summary><p>Sélectionnez Ouest, tous produits. Relevez les quatre montants, rédigez une conclusion avec son périmètre, puis rétablissez Tout. Utilisez uniquement les techniques de ce bloc.</p><p class="small">La correction détaillée sera présentée ou transmise séparément par le formateur.</p></details>
+<details><summary>Cas d’usage professionnels</summary><p>Ces situations sont illustratives, sans résultat attribué à une entreprise particulière.</p><ul><li><strong>Commerce :</strong> une enseigne cherche une région où approfondir l’analyse. Une courbe filtrable aide à comparer les périodes à périmètre égal.</li><li><strong>Logistique :</strong> un transporteur suit le nombre de livraisons par mois et par agence. Les filtres permettent d’isoler l’agence à examiner.</li><li><strong>Formation :</strong> un organisme suit ses inscriptions par mois et par programme. Les périodes sans données doivent être distinguées des périodes sans inscription.</li></ul></details>
+<p class="small">Dans le prochain bloc, nous apprendrons à créer de nouveaux indicateurs avec les champs calculés.</p>
+</section>
+
+<section class="course-section" id="revision">
+<p class="eyebrow">Bloc 03 <span>/</span> 09 · Réviser les notions</p><h2>Lire la vue avec ses sélections.</h2>
+<h3>Fiche de révision</h3><div class="revision-grid"><p><strong>Niveau de date</strong><br>Choisir année, mois ou jour.</p><p><strong>Mois continu</strong><br>Placer les mois sur un axe temporel.</p><p><strong>Somme</strong><br>Additionner les montants retenus.</p><p><strong>Filtre</strong><br>Limiter le périmètre de la vue.</p><p><strong>Fiche masquée</strong><br>Le filtre peut rester actif.</p><p><strong>Conclusion</strong><br>Préciser période, unité et sélections.</p></div>
+<h3>Questions de révision</h3><ol><li>Pourquoi notre fichier donne-t-il une seule valeur au niveau année et quatre au niveau mois ?</li><li>Que vérifiez-vous pour obtenir un mois continu sur Colonnes ?</li><li>Quelles observations contribuent au montant de janvier lorsque Nord est sélectionné ?</li><li>Que conserve la combinaison Nord et Ordinateur ?</li><li>Pourquoi masquer la fiche Region ne suffit-il pas pour retrouver toutes les ventes ?</li><li>Que peut-on affirmer sur les jours qui ne sont pas présents dans le CSV ?</li></ol>
+<div class="quiz-invitation"><div><p class="eyebrow">QCM séparé</p><h3>Vérifier vos acquis</h3><p>Cinq questions, un score et une explication pour chaque réponse.</p></div><a class="button primary" href="../qcm/03_dates_filtres.html">Faire le QCM du bloc 03 →</a></div>
+<aside class="quiz-invitation"><div><p class="eyebrow">Étude de cas · À rendre</p><h3>La baisse est-elle réelle ?</h3><p>Choisissez vos vues, contrôlez les résultats et défendez une recommandation. Le QCM de réactivation précède la correction collective à la reprise.</p></div><a class="button primary" href="../etudes/03_auditer_evolution.html">Ouvrir l’étude →</a></aside><h3>Résumé final</h3><p>La courbe suit les montants disponibles par mois. Les filtres Region et Produit précisent l’analyse sans supprimer les données du fichier. Pour expliquer un résultat, vérifiez le niveau de date, l’agrégation et les filtres actifs. Gardez la période et le périmètre dans votre conclusion, puis enregistrez le classeur.</p>
+</section>
+
+
+<div class="actions"><a class="button primary" href="tp_02_dates_filtres.html">Poursuivre avec le TP guidé 02 →</a></div></div></div>
+</main>
+<footer class="site-footer"><span>Le labo Tableau / NEXA</span><a href="../index.html">Revenir au parcours ←</a></footer>
+</body>
+</html>
