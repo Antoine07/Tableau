@@ -140,6 +140,7 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{overflow-wrap:break-wor
 
 /* Accueil : cartes du parcours alignées comme dans le site Algorithmique. */
 .home .home-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.home .practice-catalog{margin-top:42px}
 .home-grid .path-card{min-width:0;padding:24px;border-radius:20px}
 .home-grid .card-top{align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:28px;min-height:54px}
 .home-grid .step-number{font-size:.72rem;margin:0}
@@ -154,3 +155,14 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{overflow-wrap:break-wor
 @media(max-width:1100px){.home .home-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.home .home-grid{grid-template-columns:minmax(0,1fr);gap:14px}.home-grid .card-top,.home-grid .path-card>.step-number{min-height:0;margin-bottom:22px}}
 @media print{.home .home-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-grid .path-card{break-inside:avoid}}
+
+/* Atelier d’audit : formules et questions longues. */
+.tp-formula{padding:16px 18px;background:var(--soft);border:1px solid var(--line);border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.9rem}
+.tp-questions{list-style:none;padding:0;counter-reset:none}
+.course-section .tp-questions>li{padding:18px 0;border-bottom:1px solid var(--line);margin:0;scroll-margin-top:24px}
+.tp-questions .mini-label{display:block;color:var(--green);margin-bottom:8px}
+@media print{.tp-formula,.tp-questions>li{break-inside:avoid}}
+
+/* Capture Repères du premier graphique : vignette lisible, agrandissement au clic. */
+.software-capture.capture-small .capture-image-link{width:min(100% - 24px,344px);margin:12px auto;padding:8px}
+.software-capture.capture-small .capture-image-link img{display:block;width:100%;max-width:320px;max-height:240px;height:auto;margin:0 auto;object-fit:contain}
