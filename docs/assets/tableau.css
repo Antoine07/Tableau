@@ -166,3 +166,12 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{overflow-wrap:break-wor
 /* Capture Repères du premier graphique : vignette lisible, agrandissement au clic. */
 .software-capture.capture-small .capture-image-link{width:min(100% - 24px,344px);margin:12px auto;padding:8px}
 .software-capture.capture-small .capture-image-link img{display:block;width:100%;max-width:320px;max-height:240px;height:auto;margin:0 auto;object-fit:contain}
+
+/* Accueil : cours, réactivation et TP suivent des étapes clairement colorées. */
+.home .home-path-section{margin-top:38px}
+.home-path-section .section-heading h2{font-size:1.55rem}
+.home-grid .quiz-card{background:#edf4f8;border-color:#cbdce6}
+.home-grid .quiz-card:hover{border-color:#86a9bf}
+.home-grid .tp-card{background:#fbf2e9;border-color:#ead4bf}
+.home-grid .tp-card:hover{border-color:#c99462}
+.home-grid .tp-card .step-number{color:#9b6435}

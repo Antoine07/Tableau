@@ -4,7 +4,7 @@
 
 ## Mon erreur de conception
 
-J’ai enrichi un atelier de prise en main jusqu’à en faire un TP complet de 3 h 30, sans déplacer immédiatement sa carte, ses liens et ses prérequis. Il restait présenté juste après l’installation, alors qu’il mobilise comparaisons, filtres, comptage distinct et ratios. J’ai traité la difficulté de l’exercice indépendamment de sa place dans la journée. C’était une incohérence de ma part.
+J’ai enrichi un atelier de prise en main en TP complet, sans déplacer immédiatement sa carte, ses liens et ses prérequis. Il restait présenté juste après l’installation, alors qu’il mobilise comparaisons, filtres, comptage distinct et ratios. J’ai traité la difficulté de l’exercice indépendamment de sa place dans la journée. C’était une incohérence de ma part.
 
 J’ai également annoncé la suppression des révisions d’installation en ne retirant que les cartes de l’accueil : les invitations au QCM et aux flashcards subsistaient dans le cours. Enfin, l’exemple de COUNTD était numériquement juste, mais insuffisamment explicite sur la colonne comptée. La distinction entre deux commandes et trois montants différents devait être visible immédiatement.
 
@@ -29,16 +29,16 @@ Les durées affichées donnent :
 | --- | --- |
 | Découverte, bloc 00 | 30 min |
 | Blocs 01, 02 et 03 | 3 × 75–90 min, soit 225–270 min |
-| TP complet de fin de journée, QCM compris | 210 min |
-| **Sous-total** | **465–510 min, soit 7 h 45–8 h 30** |
-| Chapitre SQL, indiqué sur l’accueil | 70–90 min supplémentaires |
-| **Sous-total avec SQL** | **8 h 55–10 h** |
+| TP de fin de journée | Durée laissée au formateur |
+| **Cours et découverte (hors TP)** | **255–300 min, soit 4 h 15–5 h** |
+| Chapitre SQL, indiqué sur l’accueil | 90–120 min supplémentaires |
+| **Cours, découverte et SQL (hors TP)** | **345–420 min, soit 5 h 45–7 h** |
 
-Ce calcul exclut le TP Superstore, l’atelier sur les dates, les révisions séparées des cours, les autres rendus, les pauses et les difficultés d’installation. Il suppose que les durées annoncées sont effectivement cumulatives ; aucun conducteur de séance ne démontre le contraire.
+Aucune durée n’est désormais annoncée pour les TP ; leur calendrier dépend du formateur. Ces totaux de cours excluent les pauses, les QCM chronométrés, les exercices intégrés, les études et toute pratique de TP.
 
-**Conséquence :** « fin de journée » indique maintenant correctement le moment de lancement, mais ne prouve pas que les 36 questions peuvent être terminées ce jour-là.
+**Conséquence :** le TP final est placé après les blocs et le QCM de réactivation. Sa durée et son découpage relèvent désormais de ton conducteur de séance.
 
-**Recommandation :** fixer un conducteur horaire et distinguer un noyau de TP de 90–120 minutes des approfondissements. Conserver les 36 questions comme parcours complet, mais sélectionner explicitement les questions obligatoires et les prolongements selon le créneau réel. Autre possibilité : réserver une demi-journée entière au TP. La durée complète reste affichée honnêtement ; je n’ai pas raccourci les exercices sans arbitrage pédagogique.
+**Recommandation :** tu fixes le créneau et le découpage du TP. Le support indique les prérequis et les étapes, sans attribuer de durée aux TP.
 
 ### 2. Priorité haute — Deux TP de synthèse peuvent faire concurrence
 
@@ -70,6 +70,10 @@ Le parcours existant place SQL et Superstore après l’installation, avant les 
 
 La distinction entre Excel et SQL personnalisé est correctement explicitée dans le support. En revanche, l’exemple `SELECT Category, Sales ... ORDER BY Sales` illustre des lignes individuelles, tandis que la manipulation voisine produit des barres agrégées. La réserve écrite est utile, mais ne remplace pas une séparation visuelle nette entre ces deux questions.
 
+**Correction ajoutée depuis le premier audit :** après la leçon sur les relations, le chapitre introduit maintenant la part des commandes retournées par catégorie, avec un champ conditionnel dans `Returns`, un dénominateur `COUNTD(Order ID)` provenant de `Orders`, une vue en pourcentage, un SQL pédagogique, un corrigé et deux questions supplémentaires au QCM. L’heure d’application qui réunissait ces manipulations reste dans le chapitre ; tu en fixeras le temps et l’usage. L’explication distingue clairement le retour à la commande du retour d’un produit et avertit qu’une commande multi-catégorie peut contribuer à plusieurs taux.
+
+**Limite de validation :** j’ai essayé d’ouvrir le fichier `.xls` fourni dans LibreOffice pour vérifier ses colonnes et la vue réelle, mais LibreOffice s’est interrompu à cause d’une restriction macOS. La formule et les relations sont donc fondées sur le modèle déjà décrit dans le cours ; il reste à les exécuter dans la version de Tableau du formateur et à confirmer que la table `Returns` expose bien `Returned` et `Order ID`. Le support ne prétend pas connaître un classement ou des taux fixes.
+
 **Recommandation :** examiner si SQL doit venir après la consolidation des vues simples, ou être une démonstration complémentaire. Éviter de compter le TP intégré au chapitre et le TP Superstore comme deux passages identiques obligatoires. Aucun déplacement de ce chapitre n’a été fait dans cette correction ciblée.
 
 ### 6. Priorité moyenne — Validation technique et visuelle incomplète
@@ -87,3 +91,13 @@ Le navigateur automatisé n’a pas pu démarrer dans cet environnement, à caus
 ## Appréciation générale
 
 Le contenu est maintenant mieux différencié : prise en main, consolidation, application et TP d’audit. Les fichiers, les corrigés séparés et les valeurs de contrôle constituent des bases utiles. La principale faiblesse reste la planification : j’ai accumulé des ressources avant d’établir une séance réalisable. La prochaine amélioration devrait porter sur un conducteur horaire et un rendu principal clairement choisi, plutôt que sur l’ajout de nouvelles questions.
+
+### Mise à jour — progression SQL et application Superstore (25 octobre 2026)
+
+Le chapitre distingue désormais trois temps : explication de la relation logique et du `JOIN` physique avec un exemple de grain, présentation commentée de la formule de taux de commandes retournées, puis exercice d’application dans le fichier. Le chapitre se termine par le QCM SQL ; le TP Superstore approfondi vient ensuite. Le renvoi vers ce TP a été retiré de l’exercice qui le précédait et ajouté à la navigation de fin du QCM. La même progression apparaît dans le syllabus et sur l’accueil.
+
+Le TP demande maintenant de comparer lignes et commandes distinctes, d’examiner les cardinalités observées, de vérifier l’effet des relations, de calculer le taux de marge avec `SUM(Profit) / SUM(Sales)`, puis de construire et interpréter le taux de retour avec ses effectifs. Il pose des questions sur la différence entre volume et taux, sur la moyenne des ratios par ligne, et sur les limites d’une attribution des retours au niveau de la commande. Le corrigé formateur inclut ces calculs et les contrôles attendus. Les durées des TP restent absentes.
+
+**Auto-critique de cette modification :** la version précédente mélangeait explication, manipulation complète et questions d’analyse dans la leçon, puis répétait presque la même activité sous le titre de TP guidé. Elle proposait aussi un lien direct vers le TP avant le QCM. Cette redondance et ce mauvais enchaînement sont corrigés en réduisant la partie cours à la définition, aux formules commentées, à un exemple fictif et à la requête SQL, puis en réservant l’application au bloc suivant. Le TP approfondi apporte maintenant une progression technique réelle au lieu de répéter les deux graphiques introductifs.
+
+**Limites restantes :** le fichier `.xls` et les calculs n’ont pas été exécutés dans Tableau dans cette passe ; les résultats chiffrés et les cardinalités réelles sont donc laissés à vérifier sur le poste formateur. Le TP reste placé dans le parcours après le chapitre SQL et avant le bloc 02, conformément à la structure actuelle du cours ; cette position pédagogique plus précoce que le TP de fin de journée reste un choix de parcours à réévaluer séparément. Les exemples fictifs sont étiquetés et aucun taux réel n’est annoncé comme universel.
