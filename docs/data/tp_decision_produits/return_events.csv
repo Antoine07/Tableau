@@ -1,0 +1,99 @@
+return_event_id,line_id,returned_quantity,reason,return_date
+R00001,L00003,1,Damaged on arrival,2025-12-14
+R00002,L00009,1,Changed mind,2024-01-22
+R00003,L00045,1,Damaged on arrival,2025-08-09
+R00004,L00049,1,Different from description,2024-12-30
+R00005,L00056,1,Different from description,2025-05-25
+R00006,L00057,1,Size or fit,2024-03-13
+R00007,L00057,2,Size or fit,2024-03-13
+R00008,L00058,1,Size or fit,2024-03-06
+R00009,L00065,1,Changed mind,2025-01-22
+R00010,L00073,1,Damaged on arrival,2024-09-23
+R00011,L00075,1,Size or fit,2024-10-01
+R00012,L00081,1,Different from description,2025-01-28
+R00013,L00081,1,Different from description,2025-01-28
+R00014,L00090,1,Size or fit,2024-11-28
+R00015,L00093,1,Different from description,2025-08-19
+R00016,L00093,1,Different from description,2025-08-19
+R00017,L00099,1,Damaged on arrival,2025-08-02
+R00018,L00115,1,Changed mind,2025-12-31
+R00019,L00116,1,Different from description,2024-07-28
+R00020,L00116,1,Different from description,2024-07-28
+R00021,L00143,1,Changed mind,2024-09-26
+R00022,L00143,1,Changed mind,2024-09-26
+R00023,L00149,1,Damaged on arrival,2024-12-28
+R00024,L00160,1,Different from description,2024-08-01
+R00025,L00160,1,Different from description,2024-08-01
+R00026,L00162,1,Size or fit,2024-12-06
+R00027,L00162,1,Damaged on arrival,2024-12-02
+R00028,L00170,1,Changed mind,2024-09-16
+R00029,L00175,1,Different from description,2025-10-14
+R00030,L00175,1,Different from description,2025-10-14
+R00031,L00194,1,Different from description,2025-07-17
+R00032,L00196,1,Size or fit,2025-07-12
+R00033,L00207,1,Size or fit,2024-11-23
+R00034,L00210,1,Size or fit,2024-11-07
+R00035,L00213,1,Different from description,2024-03-01
+R00036,L00229,1,Delivery issue,2024-04-17
+R00037,L00231,1,Damaged on arrival,2025-08-17
+R00038,L00236,1,Damaged on arrival,2024-12-24
+R00039,L00236,1,Changed mind,2024-12-25
+R00040,L00236,1,Changed mind,2024-12-25
+R00041,L00241,1,Damaged on arrival,2024-07-03
+R00042,L00252,1,Damaged on arrival,2026-01-08
+R00043,L00257,1,Size or fit,2025-10-08
+R00044,L00277,1,Different from description,2024-04-24
+R00045,L00277,1,Size or fit,2024-04-29
+R00046,L00279,1,Damaged on arrival,2025-09-13
+R00047,L00285,1,Delivery issue,2024-02-27
+R00048,L00285,1,Delivery issue,2024-02-27
+R00049,L00314,1,Damaged on arrival,2025-09-28
+R00050,L00323,1,Changed mind,2025-06-27
+R00051,L00346,1,Changed mind,2025-10-30
+R00052,L00349,1,Size or fit,2024-07-15
+R00053,L00349,2,Size or fit,2024-07-15
+R00054,L00358,1,Size or fit,2025-12-17
+R00055,L00358,1,Size or fit,2025-12-17
+R00056,L00367,1,Size or fit,2025-02-06
+R00057,L00375,1,Delivery issue,2024-12-11
+R00058,L00377,1,Damaged on arrival,2024-12-10
+R00059,L00378,1,Different from description,2025-11-13
+R00060,L00384,1,Different from description,2024-02-11
+R00061,L00387,1,Different from description,2026-01-01
+R00062,L00391,1,Damaged on arrival,2025-09-17
+R00063,L00396,1,Size or fit,2025-04-05
+R00064,L00396,1,Size or fit,2025-04-05
+R00065,L00400,1,Changed mind,2024-09-10
+R00066,L00408,1,Changed mind,2025-09-14
+R00067,L00436,1,Changed mind,2024-12-03
+R00068,L00468,1,Damaged on arrival,2024-04-21
+R00069,L00468,1,Damaged on arrival,2024-04-21
+R00070,L00472,1,Changed mind,2025-04-13
+R00071,L00472,2,Changed mind,2025-04-13
+R00072,L00480,1,Changed mind,2024-04-09
+R00073,L00480,1,Delivery issue,2024-04-06
+R00074,L00482,1,Different from description,2025-06-21
+R00075,L00485,1,Different from description,2024-03-12
+R00076,L00487,1,Changed mind,2025-06-14
+R00077,L00489,1,Damaged on arrival,2025-11-08
+R00078,L00489,1,Damaged on arrival,2025-11-08
+R00079,L00510,1,Damaged on arrival,2025-07-19
+R00080,L00514,1,Changed mind,2024-03-19
+R00081,L00519,1,Different from description,2025-04-29
+R00082,L00525,1,Changed mind,2024-05-12
+R00083,L00529,1,Delivery issue,2024-10-24
+R00084,L00532,1,Different from description,2025-08-15
+R00085,L00532,1,Different from description,2025-08-15
+R00086,L00537,1,Different from description,2025-04-15
+R00087,L00537,1,Different from description,2025-04-15
+R00088,L00544,1,Changed mind,2024-12-20
+R00089,L00561,1,Size or fit,2026-01-21
+R00090,L00590,1,Different from description,2024-04-20
+R00091,L00632,1,Damaged on arrival,2024-10-25
+R00092,L00636,1,Different from description,2025-10-02
+R00093,L00636,1,Different from description,2025-10-02
+R00094,L00637,1,Different from description,2025-09-20
+R00095,L00648,1,Different from description,2025-04-19
+R00096,L00652,1,Damaged on arrival,2025-10-25
+R00097,L00676,1,Changed mind,2025-07-23
+R00098,L00676,1,Changed mind,2025-07-23

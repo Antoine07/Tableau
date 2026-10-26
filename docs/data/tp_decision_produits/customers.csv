@@ -1,0 +1,121 @@
+customer_id,segment,region,customer_since
+C001,Home office,West,2023-09-16
+C002,Small business,South,2022-07-19
+C003,Small business,West,2025-02-20
+C004,Individual,East,2024-07-07
+C005,Individual,East,2023-02-03
+C006,Outdoor club,East,2023-07-16
+C007,Small business,North,2024-02-10
+C008,Individual,North,2024-12-23
+C009,Individual,West,2024-10-14
+C010,Small business,West,2024-10-31
+C011,Individual,West,2023-08-06
+C012,Outdoor club,West,2025-02-19
+C013,Home office,West,2022-07-03
+C014,Individual,East,2024-04-11
+C015,Home office,South,2023-01-28
+C016,Outdoor club,East,2022-11-30
+C017,Small business,South,2022-02-19
+C018,Individual,South,2023-01-02
+C019,Home office,East,2022-08-22
+C020,Small business,East,2023-09-08
+C021,Home office,East,2022-04-04
+C022,Individual,West,2023-05-11
+C023,Individual,East,2024-09-30
+C024,Individual,East,2024-08-10
+C025,Individual,East,2024-07-09
+C026,Individual,East,2023-06-08
+C027,Home office,South,2024-07-15
+C028,Individual,East,2023-05-04
+C029,Individual,South,2022-11-11
+C030,Small business,East,2022-06-02
+C031,Individual,West,2022-06-24
+C032,Individual,East,2024-04-25
+C033,Individual,West,2022-08-11
+C034,Individual,East,2024-02-07
+C035,Individual,East,2024-04-02
+C036,Individual,North,2023-09-10
+C037,Small business,West,2024-10-05
+C038,Home office,East,2022-11-02
+C039,Individual,East,2025-02-19
+C040,Individual,East,2024-04-17
+C041,Home office,East,2024-01-06
+C042,Individual,West,2024-03-09
+C043,Home office,South,2022-11-01
+C044,Individual,West,2024-04-20
+C045,Small business,South,2025-02-07
+C046,Small business,West,2023-01-14
+C047,Home office,West,2022-12-02
+C048,Individual,West,2022-07-25
+C049,Individual,East,2024-02-27
+C050,Small business,West,2023-07-10
+C051,Home office,North,2023-11-26
+C052,Small business,North,2022-01-18
+C053,Individual,West,2024-07-22
+C054,Individual,South,2023-11-17
+C055,Home office,North,2023-05-28
+C056,Home office,South,2022-03-12
+C057,Home office,North,2024-06-07
+C058,Home office,South,2024-08-11
+C059,Small business,West,2025-03-07
+C060,Small business,North,2022-08-29
+C061,Individual,East,2024-01-02
+C062,Small business,South,2025-01-30
+C063,Small business,South,2022-07-23
+C064,Individual,West,2025-04-09
+C065,Individual,North,2023-08-15
+C066,Small business,North,2022-04-20
+C067,Individual,East,2025-04-05
+C068,Outdoor club,West,2025-04-11
+C069,Individual,North,2023-05-05
+C070,Small business,West,2022-09-06
+C071,Individual,South,2022-03-10
+C072,Outdoor club,South,2023-05-09
+C073,Individual,North,2023-02-28
+C074,Individual,South,2022-05-02
+C075,Individual,East,2023-03-29
+C076,Individual,North,2024-11-24
+C077,Individual,North,2024-04-12
+C078,Outdoor club,South,2024-05-29
+C079,Outdoor club,North,2022-01-20
+C080,Small business,East,2024-07-23
+C081,Individual,North,2022-01-08
+C082,Outdoor club,East,2025-04-11
+C083,Home office,North,2024-08-18
+C084,Outdoor club,North,2022-08-20
+C085,Individual,South,2024-09-26
+C086,Home office,South,2023-03-29
+C087,Outdoor club,North,2024-07-19
+C088,Home office,West,2024-03-01
+C089,Home office,North,2022-04-19
+C090,Individual,South,2022-10-05
+C091,Home office,East,2022-12-15
+C092,Home office,West,2023-11-29
+C093,Individual,West,2023-12-02
+C094,Small business,West,2023-12-04
+C095,Home office,South,2024-03-13
+C096,Outdoor club,North,2024-03-09
+C097,Outdoor club,South,2022-05-01
+C098,Individual,East,2024-09-12
+C099,Individual,North,2022-08-21
+C100,Small business,South,2023-12-06
+C101,Individual,North,2024-05-27
+C102,Individual,North,2024-11-29
+C103,Home office,North,2022-09-03
+C104,Home office,East,2023-12-30
+C105,Small business,North,2024-05-29
+C106,Home office,North,2023-01-29
+C107,Individual,West,2022-03-15
+C108,Individual,North,2025-02-07
+C109,Individual,South,2022-06-20
+C110,Individual,East,2024-02-17
+C111,Small business,West,2024-04-04
+C112,Individual,East,2024-11-25
+C113,Small business,South,2022-01-19
+C114,Individual,West,2023-10-11
+C115,Individual,South,2023-04-20
+C116,Small business,West,2022-01-24
+C117,Individual,North,2023-08-28
+C118,Small business,South,2022-07-23
+C119,Individual,West,2024-08-06
+C120,Individual,East,2024-10-12

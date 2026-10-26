@@ -1,0 +1,25 @@
+product_id,product_name,product_family,unit_cost,list_price
+P001,Urban helmet,Urban mobility,52.00,89.00
+P002,Foldable bike lock,Urban mobility,21.00,49.00
+P003,USB bike light,Urban mobility,12.00,39.00
+P004,Compact bike pump,Urban mobility,8.00,27.00
+P005,Water filter pitcher,Kitchen and water,23.00,59.00
+P006,Filter cartridge pack,Kitchen and water,6.00,24.00
+P007,High speed blender,Kitchen and water,83.00,149.00
+P008,Coffee grinder,Kitchen and water,51.00,99.00
+P009,Dual monitor arm,Ergonomic office,66.00,139.00
+P010,Split ergonomic keyboard,Ergonomic office,63.00,119.00
+P011,Adjustable desk lamp,Ergonomic office,24.00,69.00
+P012,Lumbar support cushion,Ergonomic office,14.00,45.00
+P013,30L hiking backpack,Outdoor equipment,61.00,129.00
+P014,Insulated steel bottle,Outdoor equipment,12.00,36.00
+P015,Rechargeable headlamp,Outdoor equipment,21.00,64.00
+P016,Two person trekking tent,Outdoor equipment,208.00,329.00
+P017,Noise cancelling headphones,Audio and electronics,116.00,199.00
+P018,Portable bluetooth speaker,Audio and electronics,62.00,119.00
+P019,HD webcam,Audio and electronics,42.00,89.00
+P020,Fast charge power bank,Audio and electronics,22.00,59.00
+P021,Pet travel carrier,Pet travel,54.00,119.00
+P022,Reflective dog harness,Pet travel,14.00,49.00
+P023,Collapsible travel bowl,Pet travel,6.00,22.00
+P024,GPS pet tracker,Pet travel,37.00,79.00
