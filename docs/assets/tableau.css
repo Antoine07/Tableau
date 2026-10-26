@@ -37,6 +37,11 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{overflow-wrap:break-wor
 .software-capture figcaption p:last-child{margin-bottom:0}
 .software-capture .capture-task{padding:12px;background:var(--soft);border-radius:9px}
 .software-capture .capture-credit{font-size:.7rem;color:var(--muted)}
+.tp-correction{background:#f5f2e9;border-color:#d9ceb0}
+.tp-correction .correction-capture{max-width:820px;margin:24px auto}
+.tp-correction .correction-capture .capture-image-link img{max-height:520px;object-fit:contain}
+.tp-correction .table-wrap{margin:20px 0}
+.tp-correction pre{overflow:auto}
 .capture-unavailable{padding:16px 18px;color:var(--muted);font-size:.82rem!important}
 .interface-practice{margin:26px 0}
 .interface-practice .workspace{margin-top:18px}
