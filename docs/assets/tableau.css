@@ -186,3 +186,7 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{overflow-wrap:break-wor
 .correction-library .correction-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:900px){.correction-library .correction-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.correction-library .correction-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Bloc 03 : limiter la capture du menu « Choisir le mois continu ». */
+.software-capture[data-capture="continuous_month"] .capture-image-link{width:min(100% - 24px,600px);margin:10px auto}
+.software-capture[data-capture="continuous_month"] .capture-image-link img{max-height:420px;object-fit:contain}

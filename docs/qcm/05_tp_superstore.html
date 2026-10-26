@@ -1,23 +1,161 @@
 <!doctype html>
 <html lang="fr">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>QCM — Décider d’une gamme de produits</title>
-<link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/tableau.css"><script src="../assets/qcm.js" defer></script>
-</head>
-<body>
-<header class="site-header"><a class="brand" href="../index.html"><span class="brand-icon">tb.</span> Le labo Tableau</a><a class="back-link" href="../supports/05_tp_superstore.html">← Revoir le TP</a></header>
-<main id="qcm" class="quiz-main">
-<div class="course-intro"><p class="eyebrow">QCM · Application SQL</p><h1>Ventes, marge et retours</h1><p>Une question à la fois. Vérifiez vos choix à partir des explications et reprenez les étapes concernées si nécessaire.</p><div class="meta"><span>6 questions</span><span>Feedback immédiat</span><span>Bilan final</span></div></div>
-<section class="course-section quiz-sheet"><h2>Vérifier ses analyses.</h2><form id="quiz"><div id="quiz-questions">
-<fieldset data-answer="1"><legend>1. Dans sales_lines, que représente une ligne ?</legend><label class="quiz-option"><input type="radio" name="q0" value="0"><span>A. Un client</span></label><label class="quiz-option"><input type="radio" name="q0" value="1"><span>B. Un produit vendu dans une commande</span></label><label class="quiz-option"><input type="radio" name="q0" value="2"><span>C. Un événement de retour</span></label><label class="quiz-option"><input type="radio" name="q0" value="3"><span>D. Une famille de produits</span></label><p class="quiz-feedback" hidden data-explanation="La clé line_id identifie une ligne de vente ; plusieurs lignes peuvent partager le même order_id."></p></fieldset>
-<fieldset data-answer="2"><legend>2. Quelle clé relie une ligne de vente à ses événements de retour ?</legend><label class="quiz-option"><input type="radio" name="q1" value="0"><span>A. order_id</span></label><label class="quiz-option"><input type="radio" name="q1" value="1"><span>B. product_id</span></label><label class="quiz-option"><input type="radio" name="q1" value="2"><span>C. line_id</span></label><label class="quiz-option"><input type="radio" name="q1" value="3"><span>D. region</span></label><p class="quiz-feedback" hidden data-explanation="Chaque événement porte le line_id de la ligne concernée ; plusieurs événements peuvent se rattacher à la même ligne."></p></fieldset>
-<fieldset data-answer="0"><legend>3. Comment calculer la marge brute estimée d’une ligne ?</legend><label class="quiz-option"><input type="radio" name="q2" value="0"><span>A. net_sales − quantity × unit_cost</span></label><label class="quiz-option"><input type="radio" name="q2" value="1"><span>B. list_price − unit_cost</span></label><label class="quiz-option"><input type="radio" name="q2" value="2"><span>C. quantity × unit_cost</span></label><label class="quiz-option"><input type="radio" name="q2" value="3"><span>D. net_sales + unit_cost</span></label><p class="quiz-feedback" hidden data-explanation="net_sales est déjà calculé après remise. On lui retire le coût d’achat des unités vendues."></p></fieldset>
-<fieldset data-answer="3"><legend>4. Pourquoi la jointure brute sales_lines → return_events peut-elle gonfler SUM(net_sales) ?</legend><label class="quiz-option"><input type="radio" name="q3" value="0"><span>A. Parce que LEFT JOIN supprime les lignes sans retour</span></label><label class="quiz-option"><input type="radio" name="q3" value="1"><span>B. Parce que net_sales est toujours nul</span></label><label class="quiz-option"><input type="radio" name="q3" value="2"><span>C. Parce que les clés line_id sont différentes par définition</span></label><label class="quiz-option"><input type="radio" name="q3" value="3"><span>D. Parce qu’une ligne avec plusieurs événements est répétée une fois par événement</span></label><p class="quiz-feedback" hidden data-explanation="Il faut ramener les événements à une ligne par line_id avant de les joindre aux ventes si l’on veut conserver les sommes au grain des ventes."></p></fieldset>
-<fieldset data-answer="1"><legend>5. Quelle méthode évite ce double comptage dans la requête du taux d’unités retournées ?</legend><label class="quiz-option"><input type="radio" name="q4" value="0"><span>A. Remplacer LEFT JOIN par INNER JOIN</span></label><label class="quiz-option"><input type="radio" name="q4" value="1"><span>B. Agréger returned_quantity par line_id dans une sous-requête avant la jointure</span></label><label class="quiz-option"><input type="radio" name="q4" value="2"><span>C. Filtrer les ventes à quantity = 1</span></label><label class="quiz-option"><input type="radio" name="q4" value="3"><span>D. Utiliser COUNT(*) sur les événements</span></label><p class="quiz-feedback" hidden data-explanation="La sous-requête remet les retours au même grain que sales_lines avant le rapprochement."></p></fieldset>
-<fieldset data-answer="2"><legend>6. Quel dénominateur convient au taux d’unités retournées ?</legend><label class="quiz-option"><input type="radio" name="q5" value="0"><span>A. Nombre d’événements de retour</span></label><label class="quiz-option"><input type="radio" name="q5" value="1"><span>B. Nombre de commandes distinctes</span></label><label class="quiz-option"><input type="radio" name="q5" value="2"><span>C. Somme de toutes les unités vendues dans le périmètre</span></label><label class="quiz-option"><input type="radio" name="q5" value="3"><span>D. Chiffre d’affaires des seuls produits retournés</span></label><p class="quiz-feedback" hidden data-explanation="Le numérateur est le nombre d’unités retournées ; le dénominateur doit donc être toutes les unités vendues, y compris celles qui n’ont pas été retournées."></p></fieldset>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QCM · Réactivation après le TP SQL — Le labo Tableau</title>
+<link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/tableau.css"><script src="../assets/qcm.js" defer></script></head>
+<body><header class="site-header"><a class="brand" href="../index.html"><span class="brand-icon">tb.</span> Le labo Tableau</a><a class="back-link" href="../supports/05_tp_superstore.html">← Revoir le TP</a></header>
+<main id="qcm" class="quiz-main"><div class="course-intro"><p class="eyebrow">QCM · Après le TP SQL et relations</p><h1>Vérifier les formules et défendre une analyse</h1><p>Les 20 premières reprennent le QCM de formules fourni, adapté aux champs du TP ; les 5 dernières réinvestissent ses résultats et ses limites. Répondez après avoir réalisé l’activité : chaque choix reçoit un feedback détaillé.</p><div class="meta"><span>25 questions</span><span>Feedback détaillé à chaque réponse</span><span>Bilan final</span></div></div>
+<section class="course-section quiz-sheet"><h2>Réactiver les notions du TP</h2><form id="quiz"><div id="quiz-questions">
+<fieldset data-answer="1"><legend>1. Calculer le chiffre d’affaires net total du fichier.</legend>
+<label class="quiz-option"><input type="radio" name="q0" value="0"><span>A. COUNT([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q0" value="1"><span>B. SUM([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q0" value="2"><span>C. AVG([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q0" value="3"><span>D. COUNTD([net_sales])</span></label>
+<p class="quiz-feedback" hidden data-explanation="SUM additionne les montants nets de toutes les lignes et donne le chiffre d’affaires total du périmètre. COUNT compte des valeurs renseignées, COUNTD des montants distincts, et AVG une moyenne : ces fonctions répondent à d’autres questions."></p></fieldset>
+<fieldset data-answer="2"><legend>2. Compter le nombre de commandes distinctes, même si une commande a plusieurs lignes.</legend>
+<label class="quiz-option"><input type="radio" name="q1" value="0"><span>A. COUNT([order_id])</span></label>
+<label class="quiz-option"><input type="radio" name="q1" value="1"><span>B. SUM([order_id])</span></label>
+<label class="quiz-option"><input type="radio" name="q1" value="2"><span>C. COUNTD([order_id])</span></label>
+<label class="quiz-option"><input type="radio" name="q1" value="3"><span>D. AVG([order_id])</span></label>
+<p class="quiz-feedback" hidden data-explanation="COUNTD compte chaque identifiant de commande une seule fois. COUNT compterait les occurrences dans les lignes de vente : comme une commande peut contenir plusieurs produits, ce nombre serait généralement supérieur au nombre de commandes."></p></fieldset>
+<fieldset data-answer="0"><legend>3. Calculer le nombre total d’unités vendues.</legend>
+<label class="quiz-option"><input type="radio" name="q2" value="0"><span>A. SUM([quantity])</span></label>
+<label class="quiz-option"><input type="radio" name="q2" value="1"><span>B. COUNT([quantity])</span></label>
+<label class="quiz-option"><input type="radio" name="q2" value="2"><span>C. COUNTD([quantity])</span></label>
+<label class="quiz-option"><input type="radio" name="q2" value="3"><span>D. AVG([quantity])</span></label>
+<p class="quiz-feedback" hidden data-explanation="SUM(quantity) additionne les quantités de chaque ligne. COUNT(quantity) compterait les lignes où la quantité est renseignée, pas les articles vendus."></p></fieldset>
+<fieldset data-answer="1"><legend>4. Compter les produits différents présents dans les ventes.</legend>
+<label class="quiz-option"><input type="radio" name="q3" value="0"><span>A. COUNT([product_id])</span></label>
+<label class="quiz-option"><input type="radio" name="q3" value="1"><span>B. COUNTD([product_id])</span></label>
+<label class="quiz-option"><input type="radio" name="q3" value="2"><span>C. SUM([quantity])</span></label>
+<label class="quiz-option"><input type="radio" name="q3" value="3"><span>D. COUNTD([order_id])</span></label>
+<p class="quiz-feedback" hidden data-explanation="COUNTD(product_id) compte chaque identifiant produit une seule fois dans le périmètre. COUNT(product_id) compterait les apparitions du produit sur les lignes de vente."></p></fieldset>
+<fieldset data-answer="1"><legend>5. Recalculer le montant de vente après remise pour une ligne.</legend>
+<label class="quiz-option"><input type="radio" name="q4" value="0"><span>A. [quantity] * [unit_price]</span></label>
+<label class="quiz-option"><input type="radio" name="q4" value="1"><span>B. [quantity] * [unit_price] * (1 - [discount_rate])</span></label>
+<label class="quiz-option"><input type="radio" name="q4" value="2"><span>C. [net_sales] * [discount_rate]</span></label>
+<label class="quiz-option"><input type="radio" name="q4" value="3"><span>D. [quantity] * [unit_price] + [discount_rate]</span></label>
+<p class="quiz-feedback" hidden data-explanation="Le prix brut de la ligne est quantité × prix unitaire. On le multiplie par (1 − taux de remise) pour obtenir le montant après remise. Le fichier contient déjà ce résultat dans net_sales ; ce calcul sert de contrôle, pas de remise à appliquer une seconde fois."></p></fieldset>
+<fieldset data-answer="2"><legend>6. Calculer le coût d’achat total d’une ligne de vente.</legend>
+<label class="quiz-option"><input type="radio" name="q5" value="0"><span>A. [quantity] + [unit_cost]</span></label>
+<label class="quiz-option"><input type="radio" name="q5" value="1"><span>B. [net_sales] - [unit_cost]</span></label>
+<label class="quiz-option"><input type="radio" name="q5" value="2"><span>C. [quantity] * [unit_cost]</span></label>
+<label class="quiz-option"><input type="radio" name="q5" value="3"><span>D. SUM([unit_cost])</span></label>
+<p class="quiz-feedback" hidden data-explanation="Le coût d’achat de la ligne est le coût unitaire multiplié par le nombre d’unités vendues. SUM(unit_cost) ne tiendrait pas compte de quantity et ne calculerait pas le coût total de cette ligne."></p></fieldset>
+<fieldset data-answer="0"><legend>7. Calculer la marge brute d’une ligne.</legend>
+<label class="quiz-option"><input type="radio" name="q6" value="0"><span>A. [net_sales] - [quantity] * [unit_cost]</span></label>
+<label class="quiz-option"><input type="radio" name="q6" value="1"><span>B. [net_sales] - [unit_cost]</span></label>
+<label class="quiz-option"><input type="radio" name="q6" value="2"><span>C. [net_sales] + [quantity] * [unit_cost]</span></label>
+<label class="quiz-option"><input type="radio" name="q6" value="3"><span>D. [net_sales] / [unit_cost]</span></label>
+<p class="quiz-feedback" hidden data-explanation="La marge de ligne est le chiffre d’affaires net après remise moins le coût d’achat des unités. Le coût doit donc inclure la quantité. C’est une marge brute estimée, pas un bénéfice net : les frais de livraison, de fonctionnement et de marketing ne sont pas fournis."></p></fieldset>
+<fieldset data-answer="2"><legend>8. Calculer la marge brute totale d’une famille après avoir créé le champ <code>[Marge brute ligne]</code>.</legend>
+<label class="quiz-option"><input type="radio" name="q7" value="0"><span>A. AVG([Marge brute ligne])</span></label>
+<label class="quiz-option"><input type="radio" name="q7" value="1"><span>B. COUNT([Marge brute ligne])</span></label>
+<label class="quiz-option"><input type="radio" name="q7" value="2"><span>C. SUM([Marge brute ligne])</span></label>
+<label class="quiz-option"><input type="radio" name="q7" value="3"><span>D. MAX([Marge brute ligne])</span></label>
+<p class="quiz-feedback" hidden data-explanation="SUM additionne les marges de toutes les lignes de la famille et répond à la question de sa contribution totale en euros. AVG donne la marge moyenne par ligne ; MAX seulement la meilleure ligne."></p></fieldset>
+<fieldset data-answer="1"><legend>9. Calculer la marge moyenne par ligne de vente.</legend>
+<label class="quiz-option"><input type="radio" name="q8" value="0"><span>A. SUM([Marge brute ligne])</span></label>
+<label class="quiz-option"><input type="radio" name="q8" value="1"><span>B. AVG([Marge brute ligne])</span></label>
+<label class="quiz-option"><input type="radio" name="q8" value="2"><span>C. COUNTD([Marge brute ligne])</span></label>
+<label class="quiz-option"><input type="radio" name="q8" value="3"><span>D. MIN([Marge brute ligne])</span></label>
+<p class="quiz-feedback" hidden data-explanation="AVG calcule la marge moyenne d’une ligne. Elle ne doit pas être confondue avec SUM, qui mesure la contribution totale de la famille. Les deux mesures sont valides, mais elles répondent à des questions différentes."></p></fieldset>
+<fieldset data-answer="2"><legend>10. Calculer le taux de marge sur ventes nettes par famille.</legend>
+<label class="quiz-option"><input type="radio" name="q9" value="0"><span>A. AVG([Marge brute ligne]) / AVG([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q9" value="1"><span>B. SUM([net_sales]) / SUM([Marge brute ligne])</span></label>
+<label class="quiz-option"><input type="radio" name="q9" value="2"><span>C. SUM([Marge brute ligne]) / SUM([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q9" value="3"><span>D. SUM([Marge brute ligne]) * SUM([net_sales])</span></label>
+<p class="quiz-feedback" hidden data-explanation="Le taux global est marge totale ÷ ventes nettes totales. Le ratio de sommes pondère correctement les lignes par leur valeur. La formule inversée donne autre chose, et le produit des sommes n’est pas un taux."></p></fieldset>
+<fieldset data-answer="1"><legend>11. Calculer le prix net moyen par unité vendue.</legend>
+<label class="quiz-option"><input type="radio" name="q10" value="0"><span>A. AVG([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q10" value="1"><span>B. SUM([net_sales]) / SUM([quantity])</span></label>
+<label class="quiz-option"><input type="radio" name="q10" value="2"><span>C. SUM([quantity]) / SUM([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q10" value="3"><span>D. COUNT([net_sales])</span></label>
+<p class="quiz-feedback" hidden data-explanation="Le numérateur additionne les ventes nettes et le dénominateur toutes les unités vendues. Cette moyenne est pondérée par les quantités ; AVG(net_sales) serait une moyenne des montants par ligne, pas un prix moyen par unité."></p></fieldset>
+<fieldset data-answer="2"><legend>12. Calculer le chiffre d’affaires moyen par commande sur l’ensemble du fichier.</legend>
+<label class="quiz-option"><input type="radio" name="q11" value="0"><span>A. AVG([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q11" value="1"><span>B. SUM([net_sales]) / COUNT([order_id])</span></label>
+<label class="quiz-option"><input type="radio" name="q11" value="2"><span>C. SUM([net_sales]) / COUNTD([order_id])</span></label>
+<label class="quiz-option"><input type="radio" name="q11" value="3"><span>D. COUNTD([net_sales])</span></label>
+<p class="quiz-feedback" hidden data-explanation="Une commande peut occuper plusieurs lignes, donc le dénominateur doit compter les order_id distincts. Sur l’ensemble du fichier, le total net des ventes divisé par le nombre de commandes distinctes donne le chiffre d’affaires moyen par commande."></p></fieldset>
+<fieldset data-answer="1"><legend>13. Calculer le montant total des remises à partir du prix avant remise.</legend>
+<label class="quiz-option"><input type="radio" name="q12" value="0"><span>A. SUM([net_sales]) * SUM([discount_rate])</span></label>
+<label class="quiz-option"><input type="radio" name="q12" value="1"><span>B. SUM([quantity] * [unit_price] * [discount_rate])</span></label>
+<label class="quiz-option"><input type="radio" name="q12" value="2"><span>C. AVG([discount_rate])</span></label>
+<label class="quiz-option"><input type="radio" name="q12" value="3"><span>D. SUM([quantity]) * AVG([unit_price])</span></label>
+<p class="quiz-feedback" hidden data-explanation="Pour chaque ligne, la remise en euros est quantité × prix unitaire avant remise × taux de remise. Il faut calculer cette valeur ligne par ligne puis l’additionner. Multiplier les sommes ou faire une moyenne simple ne conserve pas le poids des lignes."></p></fieldset>
+<fieldset data-answer="2"><legend>14. Compter les lignes ayant une valeur <code>net_sales</code> renseignée.</legend>
+<label class="quiz-option"><input type="radio" name="q13" value="0"><span>A. COUNTD([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q13" value="1"><span>B. SUM([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q13" value="2"><span>C. COUNT([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q13" value="3"><span>D. AVG([net_sales])</span></label>
+<p class="quiz-feedback" hidden data-explanation="COUNT compte les valeurs non nulles du champ. COUNTD compterait les montants différents, SUM les additionnerait et AVG calculerait leur moyenne."></p></fieldset>
+<fieldset data-answer="0"><legend>15. Identifier le montant net le plus élevé sur une ligne de vente.</legend>
+<label class="quiz-option"><input type="radio" name="q14" value="0"><span>A. MAX([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q14" value="1"><span>B. SUM([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q14" value="2"><span>C. AVG([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q14" value="3"><span>D. COUNT([net_sales])</span></label>
+<p class="quiz-feedback" hidden data-explanation="MAX renvoie la plus grande valeur observée sur une ligne dans le périmètre courant. SUM renverrait le total du périmètre, pas le montant d’une seule ligne."></p></fieldset>
+<fieldset data-answer="1"><legend>16. Contrôler l’écart entre <code>net_sales</code> et le champ recalculé <code>Ventes recalculées</code> sur une ligne.</legend>
+<label class="quiz-option"><input type="radio" name="q15" value="0"><span>A. [net_sales] + [Ventes recalculées]</span></label>
+<label class="quiz-option"><input type="radio" name="q15" value="1"><span>B. ABS([net_sales] - [Ventes recalculées])</span></label>
+<label class="quiz-option"><input type="radio" name="q15" value="2"><span>C. [net_sales] / [Ventes recalculées]</span></label>
+<label class="quiz-option"><input type="radio" name="q15" value="3"><span>D. COUNT([net_sales])</span></label>
+<p class="quiz-feedback" hidden data-explanation="La différence absolue mesure l’écart sans que son signe masque son ampleur. Si les deux calculs concordent, l’écart vaut zéro. Il faut vérifier plusieurs lignes : un total d’écarts nul à lui seul ne garantit pas que chaque ligne est correcte."></p></fieldset>
+<fieldset data-answer="2"><legend>17. Sécuriser un taux de marge si les ventes nettes peuvent être nulles.</legend>
+<label class="quiz-option"><input type="radio" name="q16" value="0"><span>A. SUM([Marge brute ligne]) / 0</span></label>
+<label class="quiz-option"><input type="radio" name="q16" value="1"><span>B. SUM([Marge brute ligne]) / COUNT([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q16" value="2"><span>C. IF SUM([net_sales]) != 0 THEN SUM([Marge brute ligne]) / SUM([net_sales]) END</span></label>
+<label class="quiz-option"><input type="radio" name="q16" value="3"><span>D. AVG([Marge brute ligne])</span></label>
+<p class="quiz-feedback" hidden data-explanation="La condition vérifie le dénominateur agrégé avant la division. Si les ventes nettes sont nulles, le calcul renvoie NULL au lieu de produire une division impossible. Le ratio utilise les sommes, conformément à la définition du taux de marge."></p></fieldset>
+<fieldset data-answer="0"><legend>18. Classer une ligne dont la marge brute est négative.</legend>
+<label class="quiz-option"><input type="radio" name="q17" value="0"><span>A. IF [Marge brute ligne] &lt; 0 THEN &#x27;Perte&#x27; ELSE &#x27;Positive ou nulle&#x27; END</span></label>
+<label class="quiz-option"><input type="radio" name="q17" value="1"><span>B. IF SUM([Marge brute ligne]) &gt; 0 THEN &#x27;Perte&#x27; END</span></label>
+<label class="quiz-option"><input type="radio" name="q17" value="2"><span>C. COUNTD([Marge brute ligne])</span></label>
+<label class="quiz-option"><input type="radio" name="q17" value="3"><span>D. ABS([Marge brute ligne])</span></label>
+<p class="quiz-feedback" hidden data-explanation="La condition porte sur la marge de la ligne et attribue une étiquette selon son signe. La deuxième formule teste une somme agrégée et inverse en plus l’interprétation ; elle ne classerait pas chaque ligne."></p></fieldset>
+<fieldset data-answer="1"><legend>19. Calculer la part d’une famille dans le chiffre d’affaires total affiché.</legend>
+<label class="quiz-option"><input type="radio" name="q18" value="0"><span>A. SUM([net_sales]) / AVG([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q18" value="1"><span>B. SUM([net_sales]) / TOTAL(SUM([net_sales]))</span></label>
+<label class="quiz-option"><input type="radio" name="q18" value="2"><span>C. COUNTD([net_sales]) / COUNT([net_sales])</span></label>
+<label class="quiz-option"><input type="radio" name="q18" value="3"><span>D. SUM([quantity]) / SUM([net_sales])</span></label>
+<p class="quiz-feedback" hidden data-explanation="TOTAL(SUM(net_sales)) additionne les sommes des familles visibles dans la partition de la vue. Le ratio donne la part de la famille dans ce total affiché ; si un filtre change la vue, le dénominateur peut changer aussi."></p></fieldset>
+<fieldset data-answer="2"><legend>20. Calculer un taux de remise pondéré par le montant avant remise.</legend>
+<label class="quiz-option"><input type="radio" name="q19" value="0"><span>A. AVG([discount_rate])</span></label>
+<label class="quiz-option"><input type="radio" name="q19" value="1"><span>B. SUM([discount_rate])</span></label>
+<label class="quiz-option"><input type="radio" name="q19" value="2"><span>C. SUM([quantity] * [unit_price] * [discount_rate]) / SUM([quantity] * [unit_price])</span></label>
+<label class="quiz-option"><input type="radio" name="q19" value="3"><span>D. MAX([discount_rate])</span></label>
+<p class="quiz-feedback" hidden data-explanation="Le numérateur est la remise totale en euros ; le dénominateur est le montant total avant remise. Ce ratio pondère davantage les ventes de grande valeur. AVG(discount_rate) donne le même poids à chaque ligne, quelle que soit sa taille."></p></fieldset>
+<fieldset data-answer="3"><legend>21. Après un LEFT JOIN brut entre ventes et événements, combien de lignes obtient-on si les 75 lignes retournées correspondent à 98 événements ?</legend>
+<label class="quiz-option"><input type="radio" name="q20" value="0"><span>A. 690</span></label>
+<label class="quiz-option"><input type="radio" name="q20" value="1"><span>B. 75</span></label>
+<label class="quiz-option"><input type="radio" name="q20" value="2"><span>C. 98</span></label>
+<label class="quiz-option"><input type="radio" name="q20" value="3"><span>D. 713</span></label>
+<p class="quiz-feedback" hidden data-explanation="Il y a 615 lignes sans retour, conservées une fois chacune, puis 98 lignes correspondant aux événements : 615 + 98 = 713. L’écart avec les 690 lignes de vente vient des 23 événements supplémentaires au-delà du premier événement sur une ligne."></p></fieldset>
+<fieldset data-answer="1"><legend>22. Quel est le taux d’unités retournées le plus élevé dans les résultats du TP ?</legend>
+<label class="quiz-option"><input type="radio" name="q21" value="0"><span>A. Urban mobility : 7 / 238, environ 2,9 %</span></label>
+<label class="quiz-option"><input type="radio" name="q21" value="1"><span>B. Pet travel : 33 / 223, environ 14,8 %</span></label>
+<label class="quiz-option"><input type="radio" name="q21" value="2"><span>C. Audio and electronics : 29 / 228, environ 12,7 %</span></label>
+<label class="quiz-option"><input type="radio" name="q21" value="3"><span>D. Ergonomic office : 6 / 188, environ 3,2 %</span></label>
+<p class="quiz-feedback" hidden data-explanation="Le taux se calcule avec les unités retournées divisées par les unités vendues de la famille. Pet travel atteint 33 ÷ 223 ≈ 14,8 %, devant Audio and electronics à 29 ÷ 228 ≈ 12,7 %. Ce constat repère une priorité d’analyse, mais ne révèle pas la cause des retours."></p></fieldset>
+<fieldset data-answer="2"><legend>23. Quelle famille présente la marge estimée des unités conservées la plus élevée ?</legend>
+<label class="quiz-option"><input type="radio" name="q22" value="0"><span>A. Audio and electronics : environ 5 259</span></label>
+<label class="quiz-option"><input type="radio" name="q22" value="1"><span>B. Outdoor equipment : environ 6 270</span></label>
+<label class="quiz-option"><input type="radio" name="q22" value="2"><span>C. Ergonomic office : environ 6 968</span></label>
+<label class="quiz-option"><input type="radio" name="q22" value="3"><span>D. Pet travel : environ 4 256</span></label>
+<p class="quiz-feedback" hidden data-explanation="Ergonomic office arrive première avec environ 6 968,08 dans le scénario retenu. Audio and electronics réalise le chiffre d’affaires net le plus élevé, mais sa marge estimée des unités conservées est inférieure à celles d’Ergonomic office et d’Outdoor equipment."></p></fieldset>
+<fieldset data-answer="1"><legend>24. Quelle hypothèse est nécessaire pour interpréter la marge estimée après retours du TP ?</legend>
+<label class="quiz-option"><input type="radio" name="q23" value="0"><span>A. Les produits retournés sont forcément détruits</span></label>
+<label class="quiz-option"><input type="radio" name="q23" value="1"><span>B. Les unités retournées sont remboursées au prix net moyen et remises en stock</span></label>
+<label class="quiz-option"><input type="radio" name="q23" value="2"><span>C. Aucun remboursement n’a lieu</span></label>
+<label class="quiz-option"><input type="radio" name="q23" value="3"><span>D. Le chiffre d’affaires des retours est connu directement dans la table</span></label>
+<p class="quiz-feedback" hidden data-explanation="Les données ne décrivent ni remboursement ni remise en stock. Le scénario suppose un remboursement au prorata du prix net de la ligne et la récupération des articles en stock ; la marge des unités conservées repose sur ces hypothèses. Les frais de retour et la valeur réelle de récupération restent inconnus."></p></fieldset>
+<fieldset data-answer="2"><legend>25. Quelle conclusion commerciale est la plus défendable ?</legend>
+<label class="quiz-option"><input type="radio" name="q24" value="0"><span>A. Augmenter automatiquement la promotion audio car son chiffre d’affaires est le plus élevé</span></label>
+<label class="quiz-option"><input type="radio" name="q24" value="1"><span>B. Arrêter Pet travel : son taux de retour prouve que ses produits sont défectueux</span></label>
+<label class="quiz-option"><input type="radio" name="q24" value="2"><span>C. Tester une action limitée, suivre la marge incrémentale et examiner les retours avant généralisation</span></label>
+<label class="quiz-option"><input type="radio" name="q24" value="3"><span>D. Les retours causent nécessairement la différence de marge entre les familles</span></label>
+<p class="quiz-feedback" hidden data-explanation="Le chiffre d’affaires seul ne suffit pas : Audio and electronics est première en ventes mais pas en marge estimée des unités conservées, et son taux de retour unitaire est élevé. Un test limité avec un indicateur de marge incrémentale est plus prudent ; stock, coûts marketing, remboursements et motifs détaillés doivent être vérifiés. Les données montrent des écarts, pas leurs causes."></p></fieldset>
 </div><div class="actions"><button class="button primary" type="submit">Valider ma réponse</button></div><p id="quiz-score" aria-live="polite"></p></form></section>
-<nav class="quiz-return"><a class="button" href="../supports/05_tp_superstore.html">← Revoir le TP</a><a class="button" href="../index.html">Retour au parcours</a></nav>
-</main><footer class="site-footer">Le labo Tableau / NEXA</footer>
-</body>
-</html>
+<nav class="quiz-return"><a class="button" href="../supports/05_tp_superstore.html">← Revoir le TP</a><a class="button" href="../index.html">Retour au parcours</a></nav></main>
+<footer class="site-footer">Le labo Tableau / NEXA</footer></body></html>
