@@ -4,7 +4,7 @@
 <title>QCM · Réactivation après le TP SQL — Le labo Tableau</title>
 <link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/tableau.css"><script src="../assets/qcm.js" defer></script></head>
 <body><header class="site-header"><a class="brand" href="../index.html"><span class="brand-icon">tb.</span> Le labo Tableau</a><a class="back-link" href="../supports/05_tp_superstore.html">← Revoir le TP</a></header>
-<main id="qcm" class="quiz-main"><div class="course-intro"><p class="eyebrow">QCM · Après le TP SQL et relations</p><h1>Vérifier les formules et défendre une analyse</h1><p>Les 20 premières reprennent le QCM de formules fourni, adapté aux champs du TP ; les 5 dernières réinvestissent ses résultats et ses limites. Répondez après avoir réalisé l’activité : chaque choix reçoit un feedback détaillé.</p><div class="meta"><span>25 questions</span><span>Feedback détaillé à chaque réponse</span><span>Bilan final</span></div></div>
+<main id="qcm" class="quiz-main"><div class="course-intro"><p class="eyebrow">QCM · Après le TP SQL et relations</p><h1>Vérifier les formules et défendre une analyse</h1><p>Les questions portent sur les formules du TP, leur mise en œuvre dans Tableau, les tables reliées, les filtres et l’interprétation des résultats. Répondez après avoir réalisé l’activité : chaque choix reçoit un feedback détaillé.</p><div class="meta"><span>25 questions</span><span>Feedback détaillé à chaque réponse</span><span>Bilan final</span></div></div>
 <section class="course-section quiz-sheet"><h2>Réactiver les notions du TP</h2><form id="quiz"><div id="quiz-questions">
 <fieldset data-answer="1"><legend>1. Calculer le chiffre d’affaires net total du fichier.</legend>
 <label class="quiz-option"><input type="radio" name="q0" value="0"><span>A. COUNT([net_sales])</span></label>
@@ -84,18 +84,18 @@
 <label class="quiz-option"><input type="radio" name="q12" value="2"><span>C. AVG([discount_rate])</span></label>
 <label class="quiz-option"><input type="radio" name="q12" value="3"><span>D. SUM([quantity]) * AVG([unit_price])</span></label>
 <p class="quiz-feedback" hidden data-explanation="Pour chaque ligne, la remise en euros est quantité × prix unitaire avant remise × taux de remise. Il faut calculer cette valeur ligne par ligne puis l’additionner. Multiplier les sommes ou faire une moyenne simple ne conserve pas le poids des lignes."></p></fieldset>
-<fieldset data-answer="2"><legend>14. Compter les lignes ayant une valeur <code>net_sales</code> renseignée.</legend>
-<label class="quiz-option"><input type="radio" name="q13" value="0"><span>A. COUNTD([net_sales])</span></label>
-<label class="quiz-option"><input type="radio" name="q13" value="1"><span>B. SUM([net_sales])</span></label>
-<label class="quiz-option"><input type="radio" name="q13" value="2"><span>C. COUNT([net_sales])</span></label>
-<label class="quiz-option"><input type="radio" name="q13" value="3"><span>D. AVG([net_sales])</span></label>
-<p class="quiz-feedback" hidden data-explanation="COUNT compte les valeurs non nulles du champ. COUNTD compterait les montants différents, SUM les additionnerait et AVG calculerait leur moyenne."></p></fieldset>
-<fieldset data-answer="0"><legend>15. Identifier le montant net le plus élevé sur une ligne de vente.</legend>
-<label class="quiz-option"><input type="radio" name="q14" value="0"><span>A. MAX([net_sales])</span></label>
-<label class="quiz-option"><input type="radio" name="q14" value="1"><span>B. SUM([net_sales])</span></label>
-<label class="quiz-option"><input type="radio" name="q14" value="2"><span>C. AVG([net_sales])</span></label>
-<label class="quiz-option"><input type="radio" name="q14" value="3"><span>D. COUNT([net_sales])</span></label>
-<p class="quiz-feedback" hidden data-explanation="MAX renvoie la plus grande valeur observée sur une ligne dans le périmètre courant. SUM renverrait le total du périmètre, pas le montant d’une seule ligne."></p></fieldset>
+<fieldset data-answer="1"><legend>14. Vous voulez représenter les ventes nettes par famille avec des barres horizontales. Où placer les champs dans Tableau ?</legend>
+<label class="quiz-option"><input type="radio" name="q13" value="0"><span>A. <code>SUM([net_sales])</code> sur Lignes et <code>Product Family</code> sur Colonnes</span></label>
+<label class="quiz-option"><input type="radio" name="q13" value="1"><span>B. <code>Product Family</code> sur Lignes et <code>SUM([net_sales])</code> sur Colonnes</span></label>
+<label class="quiz-option"><input type="radio" name="q13" value="2"><span>C. Les deux champs sur Filtres</span></label>
+<label class="quiz-option"><input type="radio" name="q13" value="3"><span>D. <code>Product Family</code> sur Colonnes et <code>COUNT([net_sales])</code> sur Lignes</span></label>
+<p class="quiz-feedback" hidden data-explanation="Product Family est une dimension : placée sur Lignes, elle crée une catégorie par famille. SUM(net_sales) est une mesure : placée sur Colonnes, elle donne la longueur de chaque barre horizontale. Inverser les étagères donne des barres verticales ; un filtre ne construit pas à lui seul les catégories de la vue."></p></fieldset>
+<fieldset data-answer="2"><legend>15. Vous voulez comparer les ventes par famille en ne gardant que le canal Website. Quelle configuration répond à la demande ?</legend>
+<label class="quiz-option"><input type="radio" name="q14" value="0"><span>A. Placer <code>Channel</code> sur Lignes et <code>Product Family</code> sur Filtres</span></label>
+<label class="quiz-option"><input type="radio" name="q14" value="1"><span>B. Placer <code>Channel</code> sur Colonnes et <code>SUM([net_sales])</code> sur Filtres</span></label>
+<label class="quiz-option"><input type="radio" name="q14" value="2"><span>C. Placer <code>Channel</code> sur Filtres et sélectionner Website ; <code>Product Family</code> sur Lignes et <code>SUM([net_sales])</code> sur Colonnes</span></label>
+<label class="quiz-option"><input type="radio" name="q14" value="3"><span>D. Placer <code>Channel</code> sur Pages et supprimer <code>Product Family</code></span></label>
+<p class="quiz-feedback" hidden data-explanation="Le filtre Channel = Website limite les lignes utilisées par la vue. Product Family reste sur Lignes pour former les catégories et SUM(net_sales) sur Colonnes pour comparer leurs montants dans ce canal. Placer Channel sur une étagère de la vue découperait les résultats par canal au lieu de n’en conserver qu’un."></p></fieldset>
 <fieldset data-answer="1"><legend>16. Contrôler l’écart entre <code>net_sales</code> et le champ recalculé <code>Ventes recalculées</code> sur une ligne.</legend>
 <label class="quiz-option"><input type="radio" name="q15" value="0"><span>A. [net_sales] + [Ventes recalculées]</span></label>
 <label class="quiz-option"><input type="radio" name="q15" value="1"><span>B. ABS([net_sales] - [Ventes recalculées])</span></label>
@@ -108,30 +108,30 @@
 <label class="quiz-option"><input type="radio" name="q16" value="2"><span>C. IF SUM([net_sales]) != 0 THEN SUM([Marge brute ligne]) / SUM([net_sales]) END</span></label>
 <label class="quiz-option"><input type="radio" name="q16" value="3"><span>D. AVG([Marge brute ligne])</span></label>
 <p class="quiz-feedback" hidden data-explanation="La condition vérifie le dénominateur agrégé avant la division. Si les ventes nettes sont nulles, le calcul renvoie NULL au lieu de produire une division impossible. Le ratio utilise les sommes, conformément à la définition du taux de marge."></p></fieldset>
-<fieldset data-answer="0"><legend>18. Classer une ligne dont la marge brute est négative.</legend>
-<label class="quiz-option"><input type="radio" name="q17" value="0"><span>A. IF [Marge brute ligne] &lt; 0 THEN &#x27;Perte&#x27; ELSE &#x27;Positive ou nulle&#x27; END</span></label>
-<label class="quiz-option"><input type="radio" name="q17" value="1"><span>B. IF SUM([Marge brute ligne]) &gt; 0 THEN &#x27;Perte&#x27; END</span></label>
-<label class="quiz-option"><input type="radio" name="q17" value="2"><span>C. COUNTD([Marge brute ligne])</span></label>
-<label class="quiz-option"><input type="radio" name="q17" value="3"><span>D. ABS([Marge brute ligne])</span></label>
-<p class="quiz-feedback" hidden data-explanation="La condition porte sur la marge de la ligne et attribue une étiquette selon son signe. La deuxième formule teste une somme agrégée et inverse en plus l’interprétation ; elle ne classerait pas chaque ligne."></p></fieldset>
+<fieldset data-answer="0"><legend>18. Vous ajoutez <code>Segment</code> depuis <code>customers</code> à une vue construite avec les ventes de <code>sales_lines</code>. Quel contrôle est nécessaire pour que Tableau attribue correctement les ventes aux segments ?</legend>
+<label class="quiz-option"><input type="radio" name="q17" value="0"><span>A. Vérifier la relation entre <code>sales_lines.customer_id</code> et <code>customers.customer_id</code></span></label>
+<label class="quiz-option"><input type="radio" name="q17" value="1"><span>B. Relier <code>customers.customer_id</code> à <code>products.product_id</code></span></label>
+<label class="quiz-option"><input type="radio" name="q17" value="2"><span>C. Ajouter <code>return_events.return_event_id</code> sur Colonnes</span></label>
+<label class="quiz-option"><input type="radio" name="q17" value="3"><span>D. Remplacer la relation par une jointure sur <code>order_date</code></span></label>
+<p class="quiz-feedback" hidden data-explanation="Segment appartient à la table clients. La relation correcte passe par customer_id, clé présente dans customers et dans sales_lines. Une fois cette relation vérifiée, Segment peut servir de dimension dans la vue et SUM(net_sales) mesure les ventes des lignes attribuées à chaque segment. Des clés sans correspondance multiplieraient ou attribueraient mal les valeurs."></p></fieldset>
 <fieldset data-answer="1"><legend>19. Calculer la part d’une famille dans le chiffre d’affaires total affiché.</legend>
 <label class="quiz-option"><input type="radio" name="q18" value="0"><span>A. SUM([net_sales]) / AVG([net_sales])</span></label>
 <label class="quiz-option"><input type="radio" name="q18" value="1"><span>B. SUM([net_sales]) / TOTAL(SUM([net_sales]))</span></label>
 <label class="quiz-option"><input type="radio" name="q18" value="2"><span>C. COUNTD([net_sales]) / COUNT([net_sales])</span></label>
 <label class="quiz-option"><input type="radio" name="q18" value="3"><span>D. SUM([quantity]) / SUM([net_sales])</span></label>
 <p class="quiz-feedback" hidden data-explanation="TOTAL(SUM(net_sales)) additionne les sommes des familles visibles dans la partition de la vue. Le ratio donne la part de la famille dans ce total affiché ; si un filtre change la vue, le dénominateur peut changer aussi."></p></fieldset>
-<fieldset data-answer="2"><legend>20. Calculer un taux de remise pondéré par le montant avant remise.</legend>
-<label class="quiz-option"><input type="radio" name="q19" value="0"><span>A. AVG([discount_rate])</span></label>
-<label class="quiz-option"><input type="radio" name="q19" value="1"><span>B. SUM([discount_rate])</span></label>
-<label class="quiz-option"><input type="radio" name="q19" value="2"><span>C. SUM([quantity] * [unit_price] * [discount_rate]) / SUM([quantity] * [unit_price])</span></label>
-<label class="quiz-option"><input type="radio" name="q19" value="3"><span>D. MAX([discount_rate])</span></label>
-<p class="quiz-feedback" hidden data-explanation="Le numérateur est la remise totale en euros ; le dénominateur est le montant total avant remise. Ce ratio pondère davantage les ventes de grande valeur. AVG(discount_rate) donne le même poids à chaque ligne, quelle que soit sa taille."></p></fieldset>
-<fieldset data-answer="3"><legend>21. Après un LEFT JOIN brut entre ventes et événements, combien de lignes obtient-on si les 75 lignes retournées correspondent à 98 événements ?</legend>
+<fieldset data-answer="1"><legend>20. Dans une même feuille, vous utilisez <code>Product Family</code> de <code>products</code> et <code>Net Sales</code> de <code>sales_lines</code>. Que faut-il faire pour obtenir les ventes par famille sans fabriquer une jointure manuelle incorrecte ?</legend>
+<label class="quiz-option"><input type="radio" name="q19" value="0"><span>A. Relier les tables sur <code>customer_id</code>, puis compter les lignes</span></label>
+<label class="quiz-option"><input type="radio" name="q19" value="1"><span>B. Vérifier la relation logique sur <code>product_id</code>, puis placer Product Family dans la vue et agréger Net Sales</span></label>
+<label class="quiz-option"><input type="radio" name="q19" value="2"><span>C. Ajouter tous les champs des deux tables dans la vue</span></label>
+<label class="quiz-option"><input type="radio" name="q19" value="3"><span>D. Convertir Product Family en mesure et additionner ses valeurs</span></label>
+<p class="quiz-feedback" hidden data-explanation="Product Family vient de products et Net Sales de sales_lines : la relation entre ces tables doit donc utiliser product_id. Dans Tableau, le modèle relationnel permet d’utiliser la dimension produit et d’agréger les ventes au niveau demandé. Ajouter des champs inutiles peut changer le niveau de détail ; une jointure physique construite sans vérifier les clés peut répéter des lignes et gonfler les sommes."></p></fieldset>
+<fieldset data-answer="3"><legend>21. La table <code>sales_lines</code> contient 690 lignes de vente. Parmi elles, 75 lignes ont au moins un retour ; ces lignes correspondent ensemble à 98 événements dans <code>return_events</code>. Après un <code>LEFT JOIN</code> brut sur <code>line_id</code>, combien de lignes la jointure produit-elle ?</legend>
 <label class="quiz-option"><input type="radio" name="q20" value="0"><span>A. 690</span></label>
 <label class="quiz-option"><input type="radio" name="q20" value="1"><span>B. 75</span></label>
 <label class="quiz-option"><input type="radio" name="q20" value="2"><span>C. 98</span></label>
 <label class="quiz-option"><input type="radio" name="q20" value="3"><span>D. 713</span></label>
-<p class="quiz-feedback" hidden data-explanation="Il y a 615 lignes sans retour, conservées une fois chacune, puis 98 lignes correspondant aux événements : 615 + 98 = 713. L’écart avec les 690 lignes de vente vient des 23 événements supplémentaires au-delà du premier événement sur une ligne."></p></fieldset>
+<p class="quiz-feedback" hidden data-explanation="Les données utiles sont dans l’énoncé : 690 lignes de vente au total, dont 75 lignes avec retour, regroupées en 98 événements. Les 690 − 75 = 615 lignes sans retour restent présentes une fois chacune avec le LEFT JOIN. Les 75 autres lignes sont répétées selon leurs événements, soit 98 lignes après jointure. Total : 615 + 98 = 713. Les 23 lignes supplémentaires par rapport aux 690 initiales proviennent des événements multiples sur certaines lignes. Cette hausse illustre pourquoi une jointure brute peut gonfler SUM(net_sales)."></p></fieldset>
 <fieldset data-answer="1"><legend>22. Quel est le taux d’unités retournées le plus élevé dans les résultats du TP ?</legend>
 <label class="quiz-option"><input type="radio" name="q21" value="0"><span>A. Urban mobility : 7 / 238, environ 2,9 %</span></label>
 <label class="quiz-option"><input type="radio" name="q21" value="1"><span>B. Pet travel : 33 / 223, environ 14,8 %</span></label>
