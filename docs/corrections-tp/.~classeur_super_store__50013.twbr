@@ -1,0 +1,1911 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20263.26.1015.1742                               -->
+<workbook _.fcp.WorkbookFingerprinting.true...author-id='a39a1ac485c392eac9dadcabf9ce6b54474c8fe63145e354d70620bb6ab9435d' _.fcp.WorkbookFingerprinting.true...creator-author-id='a39a1ac485c392eac9dadcabf9ce6b54474c8fe63145e354d70620bb6ab9435d' _.fcp.WorkbookFingerprinting.true...creator-license-type='public' _.fcp.WorkbookFingerprinting.true...creator-machine-id='a39a1ac485c392eac9dadcabf9ce6b54474c8fe63145e354d70620bb6ab9435d' _.fcp.WorkbookFingerprinting.true...license-type='public' _.fcp.WorkbookFingerprinting.true...machine-id='a39a1ac485c392eac9dadcabf9ce6b54474c8fe63145e354d70620bb6ab9435d' original-version='18.1' source-build='2026.3.0 (20263.26.1015.1742)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <_.fcp.WorkbookFingerprinting.true...WorkbookFingerprinting />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='customers' inline='true' name='federated.11k04zn180o15n17ln4pa041huot' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='customers' name='textscan.06aoj9u0svt99n1bljxs404b9gkz'>
+            <connection class='textclean' cleaning='yes' compat='no' csvFile='/Users/antoinelucsko/Desktop/CLIENTS/BUSINESS_PERFORMANCE/NEXA/TABLEAU/data/tp_decision_produits/customers.csv' dataRefreshTime='' directory='/Users/antoinelucsko/Desktop/CLIENTS/BUSINESS_PERFORMANCE/NEXA/TABLEAU/data/tp_decision_produits' filename='/var/folders/ms/x7959k794fvbf8zgzhhq702c0000gn/T/tableau-temp/0xpek1m1si6zji133aax409betj6/customers.csv.xlsx' interpretationMode='8' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.06aoj9u0svt99n1bljxs404b9gkz' name='sales_lines.csv' table='[sales_lines#csv$]' type='table'>
+            <columns gridOrigin='A1:J691:no:A1:J691:1'>
+              <column datatype='string' name='line_id' ordinal='0' />
+              <column datatype='string' name='order_id' ordinal='1' />
+              <column datatype='date' name='order_date' ordinal='2' />
+              <column datatype='string' name='customer_id' ordinal='3' />
+              <column datatype='string' name='product_id' ordinal='4' />
+              <column datatype='integer' name='quantity' ordinal='5' />
+              <column datatype='integer' name='unit_price' ordinal='6' />
+              <column datatype='real' name='discount_rate' ordinal='7' />
+              <column datatype='real' name='net_sales' ordinal='8' />
+              <column datatype='string' name='channel' ordinal='9' />
+            </columns>
+          </relation>
+          <relation connection='textscan.06aoj9u0svt99n1bljxs404b9gkz' name='customers.csv' table='[customers#csv$]' type='table'>
+            <columns gridOrigin='A1:D121:no:A1:D121:1'>
+              <column datatype='string' name='customer_id' ordinal='0' />
+              <column datatype='string' name='segment' ordinal='1' />
+              <column datatype='string' name='region' ordinal='2' />
+              <column datatype='date' name='customer_since' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.06aoj9u0svt99n1bljxs404b9gkz' name='products.csv' table='[products#csv$]' type='table'>
+            <columns gridOrigin='A1:E25:no:A1:E25:1'>
+              <column datatype='string' name='product_id' ordinal='0' />
+              <column datatype='string' name='product_name' ordinal='1' />
+              <column datatype='string' name='product_family' ordinal='2' />
+              <column datatype='integer' name='unit_cost' ordinal='3' />
+              <column datatype='integer' name='list_price' ordinal='4' />
+            </columns>
+          </relation>
+          <relation connection='textscan.06aoj9u0svt99n1bljxs404b9gkz' name='return_events.csv' table='[return_events#csv$]' type='table'>
+            <columns gridOrigin='A1:E99:no:A1:E99:1'>
+              <column datatype='string' name='return_event_id' ordinal='0' />
+              <column datatype='string' name='line_id' ordinal='1' />
+              <column datatype='integer' name='returned_quantity' ordinal='2' />
+              <column datatype='string' name='reason' ordinal='3' />
+              <column datatype='date' name='return_date' ordinal='4' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[channel]' value='[sales_lines.csv].[channel]' />
+          <map key='[customer_id (customers.csv)]' value='[customers.csv].[customer_id]' />
+          <map key='[customer_id]' value='[sales_lines.csv].[customer_id]' />
+          <map key='[customer_since]' value='[customers.csv].[customer_since]' />
+          <map key='[discount_rate]' value='[sales_lines.csv].[discount_rate]' />
+          <map key='[line_id (return_events.csv)]' value='[return_events.csv].[line_id]' />
+          <map key='[line_id]' value='[sales_lines.csv].[line_id]' />
+          <map key='[list_price]' value='[products.csv].[list_price]' />
+          <map key='[net_sales]' value='[sales_lines.csv].[net_sales]' />
+          <map key='[order_date]' value='[sales_lines.csv].[order_date]' />
+          <map key='[order_id]' value='[sales_lines.csv].[order_id]' />
+          <map key='[product_family]' value='[products.csv].[product_family]' />
+          <map key='[product_id (products.csv)]' value='[products.csv].[product_id]' />
+          <map key='[product_id]' value='[sales_lines.csv].[product_id]' />
+          <map key='[product_name]' value='[products.csv].[product_name]' />
+          <map key='[quantity]' value='[sales_lines.csv].[quantity]' />
+          <map key='[reason]' value='[return_events.csv].[reason]' />
+          <map key='[region]' value='[customers.csv].[region]' />
+          <map key='[return_date]' value='[return_events.csv].[return_date]' />
+          <map key='[return_event_id]' value='[return_events.csv].[return_event_id]' />
+          <map key='[returned_quantity]' value='[return_events.csv].[returned_quantity]' />
+          <map key='[segment]' value='[customers.csv].[segment]' />
+          <map key='[unit_cost]' value='[products.csv].[unit_cost]' />
+          <map key='[unit_price]' value='[sales_lines.csv].[unit_price]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[sales_lines.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:J691:no:A1:J691:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>3450</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[customers.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:D121:no:A1:D121:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>120</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[products.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:E25:no:A1:E25:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>48</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[return_events.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:E99:no:A1:E99:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>196</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>line_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[line_id]</local-name>
+            <parent-name>[sales_lines.csv]</parent-name>
+            <remote-alias>line_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[order_id]</local-name>
+            <parent-name>[sales_lines.csv]</parent-name>
+            <remote-alias>order_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[order_date]</local-name>
+            <parent-name>[sales_lines.csv]</parent-name>
+            <remote-alias>order_date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[customer_id]</local-name>
+            <parent-name>[sales_lines.csv]</parent-name>
+            <remote-alias>customer_id</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[product_id]</local-name>
+            <parent-name>[sales_lines.csv]</parent-name>
+            <remote-alias>product_id</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>quantity</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[quantity]</local-name>
+            <parent-name>[sales_lines.csv]</parent-name>
+            <remote-alias>quantity</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_price</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[unit_price]</local-name>
+            <parent-name>[sales_lines.csv]</parent-name>
+            <remote-alias>unit_price</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>discount_rate</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[discount_rate]</local-name>
+            <parent-name>[sales_lines.csv]</parent-name>
+            <remote-alias>discount_rate</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>net_sales</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[net_sales]</local-name>
+            <parent-name>[sales_lines.csv]</parent-name>
+            <remote-alias>net_sales</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>channel</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[channel]</local-name>
+            <parent-name>[sales_lines.csv]</parent-name>
+            <remote-alias>channel</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[customer_id (customers.csv)]</local-name>
+            <parent-name>[customers.csv]</parent-name>
+            <remote-alias>customer_id</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[customers.csv_1094412316F547B78D7C6A545B6C3702]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>segment</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[segment]</local-name>
+            <parent-name>[customers.csv]</parent-name>
+            <remote-alias>segment</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[customers.csv_1094412316F547B78D7C6A545B6C3702]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>region</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[region]</local-name>
+            <parent-name>[customers.csv]</parent-name>
+            <remote-alias>region</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[customers.csv_1094412316F547B78D7C6A545B6C3702]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_since</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[customer_since]</local-name>
+            <parent-name>[customers.csv]</parent-name>
+            <remote-alias>customer_since</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[customers.csv_1094412316F547B78D7C6A545B6C3702]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[product_id (products.csv)]</local-name>
+            <parent-name>[products.csv]</parent-name>
+            <remote-alias>product_id</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[products.csv_F8696C2B937244C9A40F002C76F89B92]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[product_name]</local-name>
+            <parent-name>[products.csv]</parent-name>
+            <remote-alias>product_name</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[products.csv_F8696C2B937244C9A40F002C76F89B92]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_family</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[product_family]</local-name>
+            <parent-name>[products.csv]</parent-name>
+            <remote-alias>product_family</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[products.csv_F8696C2B937244C9A40F002C76F89B92]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unit_cost</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[unit_cost]</local-name>
+            <parent-name>[products.csv]</parent-name>
+            <remote-alias>unit_cost</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[products.csv_F8696C2B937244C9A40F002C76F89B92]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>list_price</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[list_price]</local-name>
+            <parent-name>[products.csv]</parent-name>
+            <remote-alias>list_price</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[products.csv_F8696C2B937244C9A40F002C76F89B92]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>return_event_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[return_event_id]</local-name>
+            <parent-name>[return_events.csv]</parent-name>
+            <remote-alias>return_event_id</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>line_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[line_id (return_events.csv)]</local-name>
+            <parent-name>[return_events.csv]</parent-name>
+            <remote-alias>line_id</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>returned_quantity</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[returned_quantity]</local-name>
+            <parent-name>[return_events.csv]</parent-name>
+            <remote-alias>returned_quantity</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reason</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[reason]</local-name>
+            <parent-name>[return_events.csv]</parent-name>
+            <remote-alias>reason</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LFR_RFR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>return_date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[return_date]</local-name>
+            <parent-name>[return_events.csv]</parent-name>
+            <remote-alias>return_date</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Nombre de commandes' datatype='integer' name='[Calculation_3436927161679872]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNTD([order_id])' />
+      </column>
+      <column caption='Nombre de produits' datatype='integer' name='[Calculation_3436927161786369]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNTD([product_id])' />
+      </column>
+      <column caption='Nombre de ventes' datatype='integer' name='[Calculation_3436927161892866]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT([line_id])' />
+      </column>
+      <column caption='Marge brut' datatype='real' name='[Calculation_3436927220809731]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[net_sales] - [quantity] * [unit_cost]' />
+      </column>
+      <column caption='Taux de marge' datatype='real' default-format='p0.00%' name='[Calculation_3436927222902788]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Calculation_3436927220809731]) / SUM([net_sales])' />
+      </column>
+      <column caption='Ventes recalculées' datatype='real' name='[Calculation_3436927225196550]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[quantity] * [unit_price] * (1 - [discount_rate])' />
+      </column>
+      <column caption='customers.csv' datatype='table' name='[__tableau_internal_object_id__].[customers.csv_1094412316F547B78D7C6A545B6C3702]' role='measure' type='quantitative' />
+      <column caption='products.csv' datatype='table' name='[__tableau_internal_object_id__].[products.csv_F8696C2B937244C9A40F002C76F89B92]' role='measure' type='quantitative' />
+      <column caption='return_events.csv' datatype='table' name='[__tableau_internal_object_id__].[return_events.csv_D3514726FECA4A609DB942E885012EE1]' role='measure' type='quantitative' />
+      <column caption='sales_lines.csv' datatype='table' name='[__tableau_internal_object_id__].[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]' role='measure' type='quantitative' />
+      <column caption='Channel' datatype='string' name='[channel]' role='dimension' type='nominal' />
+      <column caption='Customer Id (Customers.Csv)' datatype='string' name='[customer_id (customers.csv)]' role='dimension' type='nominal' />
+      <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+      <column caption='Customer Since' datatype='date' name='[customer_since]' role='dimension' type='ordinal' />
+      <column caption='Discount Rate' datatype='real' name='[discount_rate]' role='measure' type='quantitative' />
+      <column caption='Line Id (Return Events.Csv)' datatype='string' name='[line_id (return_events.csv)]' role='dimension' type='nominal' />
+      <column caption='Line Id' datatype='string' name='[line_id]' role='dimension' type='nominal' />
+      <column caption='List Price' datatype='integer' name='[list_price]' role='measure' type='quantitative' />
+      <column caption='Net Sales' datatype='real' name='[net_sales]' role='measure' type='quantitative' />
+      <column caption='Order Date' datatype='date' name='[order_date]' role='dimension' type='ordinal' />
+      <column caption='Order Id' datatype='string' name='[order_id]' role='dimension' type='nominal' />
+      <column caption='Product Family' datatype='string' name='[product_family]' role='dimension' type='nominal' />
+      <column caption='Product Id (Products.Csv)' datatype='string' name='[product_id (products.csv)]' role='dimension' type='nominal' />
+      <column caption='Product Id' datatype='string' name='[product_id]' role='dimension' type='nominal' />
+      <column caption='Product Name' datatype='string' name='[product_name]' role='dimension' type='nominal' />
+      <column caption='Quantity' datatype='integer' name='[quantity]' role='measure' type='quantitative' />
+      <column caption='Reason' datatype='string' name='[reason]' role='dimension' type='nominal' />
+      <column caption='Region' datatype='string' name='[region]' role='dimension' type='nominal' />
+      <column caption='Return Date' datatype='date' name='[return_date]' role='dimension' type='ordinal' />
+      <column caption='Return Event Id' datatype='string' name='[return_event_id]' role='dimension' type='nominal' />
+      <column caption='Returned Quantity' datatype='integer' name='[returned_quantity]' role='measure' type='quantitative' />
+      <column caption='Segment' datatype='string' name='[segment]' role='dimension' type='nominal' />
+      <column caption='Unit Cost' datatype='integer' name='[unit_cost]' role='measure' type='quantitative' />
+      <column caption='Unit Price' datatype='integer' name='[unit_price]' role='measure' type='quantitative' />
+      <column-instance column='[__tableau_internal_object_id__].[products.csv_F8696C2B937244C9A40F002C76F89B92]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:products.csv_F8696C2B937244C9A40F002C76F89B92:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_3436927220809731]' derivation='Avg' name='[avg:Calculation_3436927220809731:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[product_family]' derivation='None' name='[none:product_family:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_3436927220809731]' derivation='Sum' name='[sum:Calculation_3436927220809731:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[net_sales]' derivation='Sum' name='[sum:net_sales:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_3436927222902788]' derivation='User' name='[usr:Calculation_3436927222902788:qk]' pivot='key' type='quantitative' />
+      <extract count='-1' enabled='true' object-id='' units='records' user-specific='false'>
+        <connection access_mode='readonly' author-locale='fr_FR' class='hyper' dbname='/var/folders/ms/x7959k794fvbf8zgzhhq702c0000gn/T/tableau-temp/#TableauTemp_0fd6tuu0egzi5u119q54d18ygmwc.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='10/27/2026 09:41:27 AM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E' table='[Extract].[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]' type='table' />
+            <relation name='customers.csv_1094412316F547B78D7C6A545B6C3702' table='[Extract].[customers.csv_1094412316F547B78D7C6A545B6C3702]' type='table' />
+            <relation name='products.csv_F8696C2B937244C9A40F002C76F89B92' table='[Extract].[products.csv_F8696C2B937244C9A40F002C76F89B92]' type='table' />
+            <relation name='return_events.csv_D3514726FECA4A609DB942E885012EE1' table='[Extract].[return_events.csv_D3514726FECA4A609DB942E885012EE1]' type='table' />
+          </relation>
+          <cols>
+            <map key='[channel]' value='[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E].[channel]' />
+            <map key='[customer_id (customers.csv)]' value='[customers.csv_1094412316F547B78D7C6A545B6C3702].[customer_id]' />
+            <map key='[customer_id]' value='[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E].[customer_id]' />
+            <map key='[customer_since]' value='[customers.csv_1094412316F547B78D7C6A545B6C3702].[customer_since]' />
+            <map key='[discount_rate]' value='[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E].[discount_rate]' />
+            <map key='[line_id (return_events.csv)]' value='[return_events.csv_D3514726FECA4A609DB942E885012EE1].[line_id]' />
+            <map key='[line_id]' value='[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E].[line_id]' />
+            <map key='[list_price]' value='[products.csv_F8696C2B937244C9A40F002C76F89B92].[list_price]' />
+            <map key='[net_sales]' value='[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E].[net_sales]' />
+            <map key='[order_date]' value='[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E].[order_date]' />
+            <map key='[order_id]' value='[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E].[order_id]' />
+            <map key='[product_family]' value='[products.csv_F8696C2B937244C9A40F002C76F89B92].[product_family]' />
+            <map key='[product_id (products.csv)]' value='[products.csv_F8696C2B937244C9A40F002C76F89B92].[product_id]' />
+            <map key='[product_id]' value='[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E].[product_id]' />
+            <map key='[product_name]' value='[products.csv_F8696C2B937244C9A40F002C76F89B92].[product_name]' />
+            <map key='[quantity]' value='[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E].[quantity]' />
+            <map key='[reason]' value='[return_events.csv_D3514726FECA4A609DB942E885012EE1].[reason]' />
+            <map key='[region]' value='[customers.csv_1094412316F547B78D7C6A545B6C3702].[region]' />
+            <map key='[return_date]' value='[return_events.csv_D3514726FECA4A609DB942E885012EE1].[return_date]' />
+            <map key='[return_event_id]' value='[return_events.csv_D3514726FECA4A609DB942E885012EE1].[return_event_id]' />
+            <map key='[returned_quantity]' value='[return_events.csv_D3514726FECA4A609DB942E885012EE1].[returned_quantity]' />
+            <map key='[segment]' value='[customers.csv_1094412316F547B78D7C6A545B6C3702].[segment]' />
+            <map key='[unit_cost]' value='[products.csv_F8696C2B937244C9A40F002C76F89B92].[unit_cost]' />
+            <map key='[unit_price]' value='[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E].[unit_price]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>line_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[line_id]</local-name>
+              <parent-name>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</parent-name>
+              <remote-alias>line_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>sales_lines.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>690</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>order_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[order_id]</local-name>
+              <parent-name>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</parent-name>
+              <remote-alias>order_id</remote-alias>
+              <ordinal>1</ordinal>
+              <family>sales_lines.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>300</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>order_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[order_date]</local-name>
+              <parent-name>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</parent-name>
+              <remote-alias>order_date</remote-alias>
+              <ordinal>2</ordinal>
+              <family>sales_lines.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>251</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>customer_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[customer_id]</local-name>
+              <parent-name>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</parent-name>
+              <remote-alias>customer_id</remote-alias>
+              <ordinal>3</ordinal>
+              <family>sales_lines.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>104</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>product_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[product_id]</local-name>
+              <parent-name>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</parent-name>
+              <remote-alias>product_id</remote-alias>
+              <ordinal>4</ordinal>
+              <family>sales_lines.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>24</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>quantity</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[quantity]</local-name>
+              <parent-name>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</parent-name>
+              <remote-alias>quantity</remote-alias>
+              <ordinal>5</ordinal>
+              <family>sales_lines.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>unit_price</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[unit_price]</local-name>
+              <parent-name>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</parent-name>
+              <remote-alias>unit_price</remote-alias>
+              <ordinal>6</ordinal>
+              <family>sales_lines.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>19</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>discount_rate</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[discount_rate]</local-name>
+              <parent-name>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</parent-name>
+              <remote-alias>discount_rate</remote-alias>
+              <ordinal>7</ordinal>
+              <family>sales_lines.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>35</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>net_sales</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[net_sales]</local-name>
+              <parent-name>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</parent-name>
+              <remote-alias>net_sales</remote-alias>
+              <ordinal>8</ordinal>
+              <family>sales_lines.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>337</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>channel</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[channel]</local-name>
+              <parent-name>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</parent-name>
+              <remote-alias>channel</remote-alias>
+              <ordinal>9</ordinal>
+              <family>sales_lines.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>customer_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[customer_id (customers.csv)]</local-name>
+              <parent-name>[customers.csv_1094412316F547B78D7C6A545B6C3702]</parent-name>
+              <remote-alias>customer_id</remote-alias>
+              <ordinal>10</ordinal>
+              <family>customers.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>120</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[customers.csv_1094412316F547B78D7C6A545B6C3702]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>segment</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[segment]</local-name>
+              <parent-name>[customers.csv_1094412316F547B78D7C6A545B6C3702]</parent-name>
+              <remote-alias>segment</remote-alias>
+              <ordinal>11</ordinal>
+              <family>customers.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[customers.csv_1094412316F547B78D7C6A545B6C3702]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>region</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[region]</local-name>
+              <parent-name>[customers.csv_1094412316F547B78D7C6A545B6C3702]</parent-name>
+              <remote-alias>region</remote-alias>
+              <ordinal>12</ordinal>
+              <family>customers.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[customers.csv_1094412316F547B78D7C6A545B6C3702]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>customer_since</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[customer_since]</local-name>
+              <parent-name>[customers.csv_1094412316F547B78D7C6A545B6C3702]</parent-name>
+              <remote-alias>customer_since</remote-alias>
+              <ordinal>13</ordinal>
+              <family>customers.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>113</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[customers.csv_1094412316F547B78D7C6A545B6C3702]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>product_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[product_id (products.csv)]</local-name>
+              <parent-name>[products.csv_F8696C2B937244C9A40F002C76F89B92]</parent-name>
+              <remote-alias>product_id</remote-alias>
+              <ordinal>14</ordinal>
+              <family>products.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>24</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[products.csv_F8696C2B937244C9A40F002C76F89B92]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>product_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[product_name]</local-name>
+              <parent-name>[products.csv_F8696C2B937244C9A40F002C76F89B92]</parent-name>
+              <remote-alias>product_name</remote-alias>
+              <ordinal>15</ordinal>
+              <family>products.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>24</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[products.csv_F8696C2B937244C9A40F002C76F89B92]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>product_family</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[product_family]</local-name>
+              <parent-name>[products.csv_F8696C2B937244C9A40F002C76F89B92]</parent-name>
+              <remote-alias>product_family</remote-alias>
+              <ordinal>16</ordinal>
+              <family>products.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[products.csv_F8696C2B937244C9A40F002C76F89B92]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>unit_cost</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[unit_cost]</local-name>
+              <parent-name>[products.csv_F8696C2B937244C9A40F002C76F89B92]</parent-name>
+              <remote-alias>unit_cost</remote-alias>
+              <ordinal>17</ordinal>
+              <family>products.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>20</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[products.csv_F8696C2B937244C9A40F002C76F89B92]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>list_price</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[list_price]</local-name>
+              <parent-name>[products.csv_F8696C2B937244C9A40F002C76F89B92]</parent-name>
+              <remote-alias>list_price</remote-alias>
+              <ordinal>18</ordinal>
+              <family>products.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>19</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[products.csv_F8696C2B937244C9A40F002C76F89B92]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>return_event_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[return_event_id]</local-name>
+              <parent-name>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</parent-name>
+              <remote-alias>return_event_id</remote-alias>
+              <ordinal>19</ordinal>
+              <family>return_events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>98</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>line_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[line_id (return_events.csv)]</local-name>
+              <parent-name>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</parent-name>
+              <remote-alias>line_id</remote-alias>
+              <ordinal>20</ordinal>
+              <family>return_events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>75</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>returned_quantity</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[returned_quantity]</local-name>
+              <parent-name>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</parent-name>
+              <remote-alias>returned_quantity</remote-alias>
+              <ordinal>21</ordinal>
+              <family>return_events.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>reason</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[reason]</local-name>
+              <parent-name>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</parent-name>
+              <remote-alias>reason</remote-alias>
+              <ordinal>22</ordinal>
+              <family>return_events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LFR_RFR_S2' />
+              <object-id>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>return_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[return_date]</local-name>
+              <parent-name>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</parent-name>
+              <remote-alias>return_date</remote-alias>
+              <ordinal>23</ordinal>
+              <family>return_events.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>79</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[return_events.csv_D3514726FECA4A609DB942E885012EE1]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.11k04zn180o15n17ln4pa041huot].[sum:net_sales:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.11k04zn180o15n17ln4pa041huot].[usr:Calculation_3436927222902788:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.11k04zn180o15n17ln4pa041huot]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.11k04zn180o15n17ln4pa041huot].[__tableau_internal_object_id__].[cnt:products.csv_F8696C2B937244C9A40F002C76F89B92:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11k04zn180o15n17ln4pa041huot].[avg:Calculation_3436927220809731:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:product_family:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Ergonomic office&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Pet travel&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Urban mobility&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Audio and electronics&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Kitchen and water&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Outdoor equipment&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;France&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <object-graph>
+        <objects>
+          <object caption='customers.csv' id='customers.csv_1094412316F547B78D7C6A545B6C3702'>
+            <properties context=''>
+              <relation connection='textscan.06aoj9u0svt99n1bljxs404b9gkz' name='customers.csv' table='[customers#csv$]' type='table'>
+                <columns gridOrigin='A1:D121:no:A1:D121:1'>
+                  <column datatype='string' name='customer_id' ordinal='0' />
+                  <column datatype='string' name='segment' ordinal='1' />
+                  <column datatype='string' name='region' ordinal='2' />
+                  <column datatype='date' name='customer_since' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='customers.csv_1094412316F547B78D7C6A545B6C3702' table='[Extract].[customers.csv_1094412316F547B78D7C6A545B6C3702]' type='table' />
+            </properties>
+          </object>
+          <object caption='products.csv' id='products.csv_F8696C2B937244C9A40F002C76F89B92'>
+            <properties context=''>
+              <relation connection='textscan.06aoj9u0svt99n1bljxs404b9gkz' name='products.csv' table='[products#csv$]' type='table'>
+                <columns gridOrigin='A1:E25:no:A1:E25:1'>
+                  <column datatype='string' name='product_id' ordinal='0' />
+                  <column datatype='string' name='product_name' ordinal='1' />
+                  <column datatype='string' name='product_family' ordinal='2' />
+                  <column datatype='integer' name='unit_cost' ordinal='3' />
+                  <column datatype='integer' name='list_price' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='products.csv_F8696C2B937244C9A40F002C76F89B92' table='[Extract].[products.csv_F8696C2B937244C9A40F002C76F89B92]' type='table' />
+            </properties>
+          </object>
+          <object caption='return_events.csv' id='return_events.csv_D3514726FECA4A609DB942E885012EE1'>
+            <properties context=''>
+              <relation connection='textscan.06aoj9u0svt99n1bljxs404b9gkz' name='return_events.csv' table='[return_events#csv$]' type='table'>
+                <columns gridOrigin='A1:E99:no:A1:E99:1'>
+                  <column datatype='string' name='return_event_id' ordinal='0' />
+                  <column datatype='string' name='line_id' ordinal='1' />
+                  <column datatype='integer' name='returned_quantity' ordinal='2' />
+                  <column datatype='string' name='reason' ordinal='3' />
+                  <column datatype='date' name='return_date' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='return_events.csv_D3514726FECA4A609DB942E885012EE1' table='[Extract].[return_events.csv_D3514726FECA4A609DB942E885012EE1]' type='table' />
+            </properties>
+          </object>
+          <object caption='sales_lines.csv' id='sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E'>
+            <properties context=''>
+              <relation connection='textscan.06aoj9u0svt99n1bljxs404b9gkz' name='sales_lines.csv' table='[sales_lines#csv$]' type='table'>
+                <columns gridOrigin='A1:J691:no:A1:J691:1'>
+                  <column datatype='string' name='line_id' ordinal='0' />
+                  <column datatype='string' name='order_id' ordinal='1' />
+                  <column datatype='date' name='order_date' ordinal='2' />
+                  <column datatype='string' name='customer_id' ordinal='3' />
+                  <column datatype='string' name='product_id' ordinal='4' />
+                  <column datatype='integer' name='quantity' ordinal='5' />
+                  <column datatype='integer' name='unit_price' ordinal='6' />
+                  <column datatype='real' name='discount_rate' ordinal='7' />
+                  <column datatype='real' name='net_sales' ordinal='8' />
+                  <column datatype='string' name='channel' ordinal='9' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E' table='[Extract].[sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[customer_id]' />
+              <expression op='[customer_id (customers.csv)]' />
+            </expression>
+            <first-end-point object-id='sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E' />
+            <second-end-point object-id='customers.csv_1094412316F547B78D7C6A545B6C3702' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[product_id]' />
+              <expression op='[product_id (products.csv)]' />
+            </expression>
+            <first-end-point object-id='sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E' />
+            <second-end-point object-id='products.csv_F8696C2B937244C9A40F002C76F89B92' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[line_id]' />
+              <expression op='[line_id (return_events.csv)]' />
+            </expression>
+            <first-end-point object-id='sales_lines.csv_62942688385F49679C0C4F47DB5D2C4E' />
+            <second-end-point object-id='return_events.csv_D3514726FECA4A609DB942E885012EE1' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Etape 1.1 - Comprendre le grain'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>&lt;Sheet Name&gt;&#10;&#10;</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'>1/ Nb de lignes de sales &gt; nb de ligne de commandes. Parce qu’une commande peut contenir plusieurs produits, chacun correspondant à une ligne dans </run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>sales_lines</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'>.</run>
+            <run>Æ&#10;</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'>Ainsi, 300 commandes génèrent 690 lignes de vente, soit une moyenne de 2,3 lignes par commande.</run>
+            <run>Æ&#10;&#10;</run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>3/ return_events</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'> n&apos;a pas le même grain que </run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>sales_lines</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'> parce qu&apos;une ligne de </run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>sales_lines</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'> représente un produit vendu dans une commande, alors qu&apos;une ligne de </run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>return_events</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'> représente un événement de retour. </run>
+            <run>Æ&#10;</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'>Une même ligne de vente pouvant avoir plusieurs événements de retour, les deux tables n&apos;ont pas le même niveau de détail. Cette différence doit être prise en compte pour éviter les doubles comptages lors des jointures.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='customers' name='federated.11k04zn180o15n17ln4pa041huot' />
+          </datasources>
+          <datasource-dependencies datasource='federated.11k04zn180o15n17ln4pa041huot'>
+            <column caption='Nombre de commandes' datatype='integer' name='[Calculation_3436927161679872]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD([order_id])' />
+            </column>
+            <column caption='Nombre de produits' datatype='integer' name='[Calculation_3436927161786369]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD([product_id])' />
+            </column>
+            <column caption='Nombre de ventes' datatype='integer' name='[Calculation_3436927161892866]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNT([line_id])' />
+            </column>
+            <column caption='Line Id' datatype='string' name='[line_id]' role='dimension' type='nominal' />
+            <column caption='Order Id' datatype='string' name='[order_id]' role='dimension' type='nominal' />
+            <column caption='Product Id' datatype='string' name='[product_id]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_3436927161679872]' derivation='User' name='[usr:Calculation_3436927161679872:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_3436927161786369]' derivation='User' name='[usr:Calculation_3436927161786369:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_3436927161892866]' derivation='User' name='[usr:Calculation_3436927161892866:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.11k04zn180o15n17ln4pa041huot].[:Measure Names]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11k04zn180o15n17ln4pa041huot].[usr:Calculation_3436927161679872:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11k04zn180o15n17ln4pa041huot].[usr:Calculation_3436927161786369:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11k04zn180o15n17ln4pa041huot].[usr:Calculation_3436927161892866:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.11k04zn180o15n17ln4pa041huot].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.11k04zn180o15n17ln4pa041huot].[Multiple Values]</rows>
+        <cols>[federated.11k04zn180o15n17ln4pa041huot].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{AD3A06FE-CFBE-4258-BFDE-BBBCE7203154}' />
+    </worksheet>
+    <worksheet name='Etape 1.2 - Comprendre le grain'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>&lt;Sheet Name&gt;&#10;</run>
+            <run fontsize='12'>1/ </run>
+            <run>Æ&#10;</run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>sales_lines</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'> → </run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>products</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'> : plusieurs lignes de vente peuvent concerner un même produit.</run>
+            <run>Æ&#10;</run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>sales_lines</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'> → </run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>customers</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'> : plusieurs lignes de vente peuvent concerner un même client.</run>
+            <run>Æ&#10;&#10;</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'>2/ La relation entre </run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>sales_lines</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'> et </run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>return_events</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'>.</run>
+            <run>Æ&#10;</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'>Une même ligne de vente peut faire l&apos;objet de plusieurs événements de retour.</run>
+            <run>Æ&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{B08727E7-F69C-44EB-8B6E-1F7E7C28DE66}' />
+    </worksheet>
+    <worksheet name='Etape 3 - Qui vend le plus, en valeur et en volume ?'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='customers' name='federated.11k04zn180o15n17ln4pa041huot' />
+          </datasources>
+          <datasource-dependencies datasource='federated.11k04zn180o15n17ln4pa041huot'>
+            <column caption='Net Sales' datatype='real' name='[net_sales]' role='measure' type='quantitative' />
+            <column-instance column='[product_family]' derivation='None' name='[none:product_family:nk]' pivot='key' type='nominal' />
+            <column caption='Product Family' datatype='string' name='[product_family]' role='dimension' type='nominal' />
+            <column-instance column='[net_sales]' derivation='Sum' name='[sum:net_sales:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.11k04zn180o15n17ln4pa041huot].[sum:net_sales:qk]' shelf='rows' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]</rows>
+        <cols>[federated.11k04zn180o15n17ln4pa041huot].[sum:net_sales:qk]</cols>
+      </table>
+      <simple-id uuid='{D5816A11-186A-4641-9213-EFB360D322C9}' />
+    </worksheet>
+    <worksheet name='Etape 3 Quelle famille vend le plus d&apos;unités ?'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='customers' name='federated.11k04zn180o15n17ln4pa041huot' />
+          </datasources>
+          <datasource-dependencies datasource='federated.11k04zn180o15n17ln4pa041huot'>
+            <column caption='Channel' datatype='string' name='[channel]' role='dimension' type='nominal' />
+            <column-instance column='[channel]' derivation='None' name='[none:channel:nk]' pivot='key' type='nominal' />
+            <column-instance column='[product_family]' derivation='None' name='[none:product_family:nk]' pivot='key' type='nominal' />
+            <column caption='Product Family' datatype='string' name='[product_family]' role='dimension' type='nominal' />
+            <column caption='Quantity' datatype='integer' name='[quantity]' role='measure' type='quantitative' />
+            <column-instance column='[quantity]' derivation='Sum' name='[sum:quantity:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.11k04zn180o15n17ln4pa041huot].[none:channel:nk]'>
+            <groupfilter function='level-members' level='[none:channel:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.11k04zn180o15n17ln4pa041huot].[sum:quantity:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.11k04zn180o15n17ln4pa041huot].[none:channel:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.11k04zn180o15n17ln4pa041huot].[sum:quantity:qk]</rows>
+        <cols>[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]</cols>
+      </table>
+      <simple-id uuid='{BAE0CA42-90FD-4E0D-9274-858A34AAD5DD}' />
+    </worksheet>
+    <worksheet name='Etape 4 Comparez somme des marges et moyenne des marges par ligne. Quelle mesure répond à la question « Quelle marge totale cette famille apporte-t-elle ?'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='customers' name='federated.11k04zn180o15n17ln4pa041huot' />
+          </datasources>
+          <datasource-dependencies datasource='federated.11k04zn180o15n17ln4pa041huot'>
+            <column caption='Marge brut' datatype='real' name='[Calculation_3436927220809731]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[net_sales] - [quantity] * [unit_cost]' />
+            </column>
+            <column-instance column='[Calculation_3436927220809731]' derivation='Avg' name='[avg:Calculation_3436927220809731:qk]' pivot='key' type='quantitative' />
+            <column caption='Net Sales' datatype='real' name='[net_sales]' role='measure' type='quantitative' />
+            <column-instance column='[product_family]' derivation='None' name='[none:product_family:nk]' pivot='key' type='nominal' />
+            <column caption='Product Family' datatype='string' name='[product_family]' role='dimension' type='nominal' />
+            <column caption='Quantity' datatype='integer' name='[quantity]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_3436927220809731]' derivation='Sum' name='[sum:Calculation_3436927220809731:qk]' pivot='key' type='quantitative' />
+            <column caption='Unit Cost' datatype='integer' name='[unit_cost]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]' included-values='in-range' />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.11k04zn180o15n17ln4pa041huot].[avg:Calculation_3436927220809731:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]' />
+              <text column='[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]</rows>
+        <cols>[federated.11k04zn180o15n17ln4pa041huot].[avg:Calculation_3436927220809731:qk]</cols>
+      </table>
+      <simple-id uuid='{959C8F98-D197-4C02-A250-A6EBA337B2A8}' />
+    </worksheet>
+    <worksheet name='Etape 4 La famille la plus vendue est-elle la plus intéressante ?'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='customers' name='federated.11k04zn180o15n17ln4pa041huot' />
+          </datasources>
+          <datasource-dependencies datasource='federated.11k04zn180o15n17ln4pa041huot'>
+            <column caption='Marge brut' datatype='real' name='[Calculation_3436927220809731]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[net_sales] - [quantity] * [unit_cost]' />
+            </column>
+            <column caption='Net Sales' datatype='real' name='[net_sales]' role='measure' type='quantitative' />
+            <column-instance column='[product_family]' derivation='None' name='[none:product_family:nk]' pivot='key' type='nominal' />
+            <column caption='Product Family' datatype='string' name='[product_family]' role='dimension' type='nominal' />
+            <column caption='Quantity' datatype='integer' name='[quantity]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_3436927220809731]' derivation='Sum' name='[sum:Calculation_3436927220809731:qk]' pivot='key' type='quantitative' />
+            <column caption='Unit Cost' datatype='integer' name='[unit_cost]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <manual-sort column='[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Ergonomic office&quot;</bucket>
+              <bucket>&quot;Outdoor equipment&quot;</bucket>
+              <bucket>&quot;Audio and electronics&quot;</bucket>
+              <bucket>&quot;Urban mobility&quot;</bucket>
+              <bucket>&quot;Pet travel&quot;</bucket>
+              <bucket>&quot;Kitchen and water&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]</rows>
+        <cols>[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]</cols>
+      </table>
+      <simple-id uuid='{005FDB94-CC4D-4A77-8023-F01FE4264882}' />
+    </worksheet>
+    <worksheet name='Etape 4 La famille qui arrive en tête des ventes nettes est-elle aussi celle qui dégage la plus grande marge brute ?'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='customers' name='federated.11k04zn180o15n17ln4pa041huot' />
+          </datasources>
+          <datasource-dependencies datasource='federated.11k04zn180o15n17ln4pa041huot'>
+            <column caption='Marge brut' datatype='real' name='[Calculation_3436927220809731]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[net_sales] - [quantity] * [unit_cost]' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[products.csv_F8696C2B937244C9A40F002C76F89B92]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:products.csv_F8696C2B937244C9A40F002C76F89B92:qk]' pivot='key' type='quantitative' />
+            <column caption='products.csv' datatype='table' name='[__tableau_internal_object_id__].[products.csv_F8696C2B937244C9A40F002C76F89B92]' role='measure' type='quantitative' />
+            <column caption='Net Sales' datatype='real' name='[net_sales]' role='measure' type='quantitative' />
+            <column-instance column='[product_family]' derivation='None' name='[none:product_family:nk]' pivot='key' type='nominal' />
+            <column caption='Product Family' datatype='string' name='[product_family]' role='dimension' type='nominal' />
+            <column caption='Quantity' datatype='integer' name='[quantity]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_3436927220809731]' derivation='Sum' name='[sum:Calculation_3436927220809731:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_sales]' derivation='Sum' name='[sum:net_sales:qk]' pivot='key' type='quantitative' />
+            <column caption='Unit Cost' datatype='integer' name='[unit_cost]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.11k04zn180o15n17ln4pa041huot].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11k04zn180o15n17ln4pa041huot].[sum:net_sales:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11k04zn180o15n17ln4pa041huot].[__tableau_internal_object_id__].[cnt:products.csv_F8696C2B937244C9A40F002C76F89B92:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.11k04zn180o15n17ln4pa041huot].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.11k04zn180o15n17ln4pa041huot].[sum:net_sales:qk]&quot;</bucket>
+              <bucket>&quot;[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]&quot;</bucket>
+              <bucket>&quot;[federated.11k04zn180o15n17ln4pa041huot].[__tableau_internal_object_id__].[cnt:products.csv_F8696C2B937244C9A40F002C76F89B92:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <manual-sort column='[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Ergonomic office&quot;</bucket>
+              <bucket>&quot;Outdoor equipment&quot;</bucket>
+              <bucket>&quot;Audio and electronics&quot;</bucket>
+              <bucket>&quot;Urban mobility&quot;</bucket>
+              <bucket>&quot;Pet travel&quot;</bucket>
+              <bucket>&quot;Kitchen and water&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='quantitative' column='[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]' included-values='in-range' />
+          <slices>
+            <column>[federated.11k04zn180o15n17ln4pa041huot].[:Measure Names]</column>
+            <column>[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.11k04zn180o15n17ln4pa041huot].[:Measure Names]' />
+              <text column='[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.11k04zn180o15n17ln4pa041huot].[Multiple Values]</rows>
+        <cols>([federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk] / [federated.11k04zn180o15n17ln4pa041huot].[:Measure Names])</cols>
+      </table>
+      <simple-id uuid='{F58F89CF-F8B6-46BA-8C02-A9AC9D720B02}' />
+    </worksheet>
+    <worksheet name='Etape 4 Le montant net_sales inclut-il déjà la remise ? Comment le vérifier à partir de quantity, unit_price et discount_rate sur quelques lignes ?'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='12'>&lt;Sheet Name&gt;</run>
+            <run>Æ&#10;&#10;</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'>Le montant </run>
+            <run fontcolor='#000000' fontname='Menlo' fontsize='12'>net_sales</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'> inclut-il déjà la remise ?</run>
+            <run>Æ&#10;</run>
+            <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='12'>Oui. La comparaison entre les ventes enregistrées et les ventes recalculées montre une concordance visuelle. Le contrôle numérique des écarts permettra de confirmer cette égalité sur l&apos;ensemble des lignes.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='customers' name='federated.11k04zn180o15n17ln4pa041huot' />
+          </datasources>
+          <datasource-dependencies datasource='federated.11k04zn180o15n17ln4pa041huot'>
+            <column caption='Ventes recalculées' datatype='real' name='[Calculation_3436927225196550]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[quantity] * [unit_price] * (1 - [discount_rate])' />
+            </column>
+            <column caption='Discount Rate' datatype='real' name='[discount_rate]' role='measure' type='quantitative' />
+            <column caption='Line Id' datatype='string' name='[line_id]' role='dimension' type='nominal' />
+            <column caption='Net Sales' datatype='real' name='[net_sales]' role='measure' type='quantitative' />
+            <column-instance column='[line_id]' derivation='None' name='[none:line_id:nk]' pivot='key' type='nominal' />
+            <column caption='Quantity' datatype='integer' name='[quantity]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_3436927225196550]' derivation='Sum' name='[sum:Calculation_3436927225196550:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_sales]' derivation='Sum' name='[sum:net_sales:qk]' pivot='key' type='quantitative' />
+            <column caption='Unit Price' datatype='integer' name='[unit_price]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.11k04zn180o15n17ln4pa041huot].[sum:net_sales:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927225196550:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.11k04zn180o15n17ln4pa041huot].[none:line_id:nk]</rows>
+        <cols>([federated.11k04zn180o15n17ln4pa041huot].[sum:net_sales:qk] + [federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927225196550:qk])</cols>
+      </table>
+      <simple-id uuid='{A5CB9072-3463-4C5C-BF1F-23F35F521CD7}' />
+    </worksheet>
+    <worksheet name='Etape 4 Quelle famille a le taux de marge le plus faible ? Est-ce celle qui a la plus petite marge en valeur absolue ?'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='customers' name='federated.11k04zn180o15n17ln4pa041huot' />
+          </datasources>
+          <datasource-dependencies datasource='federated.11k04zn180o15n17ln4pa041huot'>
+            <column caption='Marge brut' datatype='real' name='[Calculation_3436927220809731]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[net_sales] - [quantity] * [unit_cost]' />
+            </column>
+            <column caption='Taux de marge' datatype='real' default-format='p0.00%' name='[Calculation_3436927222902788]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Calculation_3436927220809731]) / SUM([net_sales])' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[products.csv_F8696C2B937244C9A40F002C76F89B92]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:products.csv_F8696C2B937244C9A40F002C76F89B92:qk]' pivot='key' type='quantitative' />
+            <column caption='products.csv' datatype='table' name='[__tableau_internal_object_id__].[products.csv_F8696C2B937244C9A40F002C76F89B92]' role='measure' type='quantitative' />
+            <column caption='Net Sales' datatype='real' name='[net_sales]' role='measure' type='quantitative' />
+            <column-instance column='[product_family]' derivation='None' name='[none:product_family:nk]' pivot='key' type='nominal' />
+            <column caption='Product Family' datatype='string' name='[product_family]' role='dimension' type='nominal' />
+            <column caption='Quantity' datatype='integer' name='[quantity]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_3436927220809731]' derivation='Sum' name='[sum:Calculation_3436927220809731:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_sales]' derivation='Sum' name='[sum:net_sales:qk]' pivot='key' type='quantitative' />
+            <column caption='Unit Cost' datatype='integer' name='[unit_cost]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_3436927222902788]' derivation='User' name='[usr:Calculation_3436927222902788:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.11k04zn180o15n17ln4pa041huot].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11k04zn180o15n17ln4pa041huot].[sum:net_sales:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.11k04zn180o15n17ln4pa041huot].[__tableau_internal_object_id__].[cnt:products.csv_F8696C2B937244C9A40F002C76F89B92:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='quantitative' column='[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]' included-values='in-range' />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.11k04zn180o15n17ln4pa041huot].[usr:Calculation_3436927222902788:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.11k04zn180o15n17ln4pa041huot].[:Measure Names]</column>
+            <column>[federated.11k04zn180o15n17ln4pa041huot].[sum:Calculation_3436927220809731:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]' />
+              <text column='[federated.11k04zn180o15n17ln4pa041huot].[usr:Calculation_3436927222902788:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]</rows>
+        <cols>[federated.11k04zn180o15n17ln4pa041huot].[usr:Calculation_3436927222902788:qk]</cols>
+      </table>
+      <simple-id uuid='{B5456B10-6213-4123-85BB-3A12D478D5A5}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Histoire 1' type='storyboard'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>&lt;</run>
+            <run>Sheet Name</run>
+            <run>&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98340' id='1' param='vert' removable='false' type-v2='layout-flow' w='98426' x='787' y='830'>
+            <zone h='3423' id='3' type-v2='title' w='98426' x='787' y='830' />
+            <zone h='10477' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='98426' x='787' y='4253' />
+            <zone h='84440' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98426' x='787' y='14730'>
+              <flipboard active-id='1' nav-type='caption' show-nav-arrows='true'>
+                <story-points>
+                  <story-point caption='Résumé de l&apos;analyse' captured-sheet='' id='1' />
+                </story-points>
+              </flipboard>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#444444' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{212F455A-D79D-4B89-B398-248ADFC4A072}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Etape 1.1 - Comprendre le grain'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A445C3DC-644B-41EB-9F11-73B00368D85F}' />
+    </window>
+    <window class='worksheet' name='Etape 1.2 - Comprendre le grain'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{77A416EF-3FA1-4E9D-94F1-881D2ED6E706}' />
+    </window>
+    <window class='worksheet' name='Etape 3 - Qui vend le plus, en valeur et en volume ?'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{7D7E07DE-84BF-45C6-A850-07AC044FEE15}' />
+    </window>
+    <window class='worksheet' name='Etape 3 Quelle famille vend le plus d&apos;unités ?'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='170'>
+            <card param='[federated.11k04zn180o15n17ln4pa041huot].[none:channel:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{2C950217-BC29-48EE-A056-D873A4416007}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Etape 4 La famille la plus vendue est-elle la plus intéressante ?'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{517A99D2-8536-4E29-B7AE-08072EFC1CAF}' />
+    </window>
+    <window class='worksheet' name='Etape 4 La famille qui arrive en tête des ventes nettes est-elle aussi celle qui dégage la plus grande marge brute ?'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='170'>
+            <card pane-specification-id='0' param='[federated.11k04zn180o15n17ln4pa041huot].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{1974E082-75DB-4AB4-9229-6BD2D84999C8}' />
+    </window>
+    <window class='worksheet' name='Etape 4 Quelle famille a le taux de marge le plus faible ? Est-ce celle qui a la plus petite marge en valeur absolue ?'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='170'>
+            <card pane-specification-id='0' param='[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E4FFE821-5A5D-48F6-A490-870A6B0B0377}' />
+    </window>
+    <window class='worksheet' name='Etape 4 Comparez somme des marges et moyenne des marges par ligne. Quelle mesure répond à la question « Quelle marge totale cette famille apporte-t-elle ?'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='170'>
+            <card pane-specification-id='0' param='[federated.11k04zn180o15n17ln4pa041huot].[none:product_family:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E2F979FC-F4D0-4FCE-B959-633C672A1EE6}' />
+    </window>
+    <window class='worksheet' name='Etape 4 Le montant net_sales inclut-il déjà la remise ? Comment le vérifier à partir de quantity, unit_price et discount_rate sur quelques lignes ?'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{955E88C8-F052-4022-9DAC-B73BA0D84F3B}' />
+    </window>
+    <window class='dashboard' name='Histoire 1'>
+      <viewpoints />
+      <active id='3' />
+      <simple-id uuid='{54E1088F-B6E9-4671-9E76-E3440C040C71}' />
+    </window>
+  </windows>
+</workbook>
