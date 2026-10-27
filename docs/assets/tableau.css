@@ -197,5 +197,5 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{overflow-wrap:break-wor
 .software-capture[data-capture="continuous_month"] .capture-image-link img{max-height:420px;object-fit:contain}
 
 /* Keep the date-filter dialog screenshot compact within the lesson card. */
-.software-capture[data-capture="date_filter"] .capture-image-link{width:min(100% - 24px,520px);margin:10px auto;padding:8px}
-.software-capture[data-capture="date_filter"] .capture-image-link img{display:block;width:100%;max-width:504px;max-height:340px;height:auto;margin:0 auto;object-fit:contain}
+.software-capture[data-capture="date_filter"] .capture-image-link{width:min(100% - 24px,400px);margin:10px auto;padding:8px}
+.software-capture[data-capture="date_filter"] .capture-image-link img{display:block;width:100%;max-width:384px;max-height:250px;height:auto;margin:0 auto;object-fit:contain}
